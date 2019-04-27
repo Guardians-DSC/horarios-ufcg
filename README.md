@@ -1,30 +1,12 @@
-# mockup-guardians-research-group
+# HorariosCC
 
-## Project setup
+## Configura o projeto
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compila e roda o servidor
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# mockup-guardians-research-group

@@ -2,8 +2,8 @@
   <div class="dia">
     <h2>{{dia}}</h2>
     <div class="horarios">
-      <Horario hora='8' :aulas='aulas8'/>
-      <Horario hora='10' :aulas='aulas10'/>
+      <Horario hora='08' :aulas='aulas'/>
+      <Horario hora='10' :aulas='aulas'/>
     </div>  
   </div>
 </template>
@@ -22,7 +22,8 @@ export default {
       aulas8,
       aulas10
     }
-  }
+  },
+
 }
 </script>
 

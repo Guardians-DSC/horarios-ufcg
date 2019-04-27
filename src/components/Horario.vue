@@ -2,7 +2,7 @@
   <div class="horario">
     <h4>{{hora}} horas</h4>
     <div class="aulas">
-      <Aula v-for="(aula, index) in aulas" :key="index" :aula='aula'></Aula>
+      <Aula v-for="(aula, index) in aulas" :key="index" :aula='aula' v-show='aula.horario.hora == hora'></Aula>
     </div>
   </div>
 </template>

@@ -5,13 +5,13 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+
 import Tabela from './components/Tabela.vue'
 
 export default {
   name: 'app',
   components: {
-    // HelloWorld
+    // HelloWorld    
     Tabela
   }
 }

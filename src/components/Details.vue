@@ -7,7 +7,6 @@ export default {
                         + '\nCategoria: '+ this.aula.categoria + '\nProfessor: ' + this.aula.professor
                         + '\nSala: '+ this.aula.sala + '\n')
     alert(detailsAlert)
-    console.log(this.aula)
   }
 
 }

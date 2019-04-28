@@ -1,11 +1,26 @@
 <template>
-  <span class="aula">{{aula.disciplina}}-{{aula.turma}}</span>
+  <div class="aula" @click="showDetails = !showDetails">
+    <span>{{aula.disciplina}}-{{aula.turma}}</span>
+    <Details v-if="showDetails == true" :aula='aula'> </Details>
+  </div>
+     
+     
 </template>
 
 <script>
+import Details from './Details.vue'
+
 export default {
   name: 'aula',
-  props: ['aula']
+  props: ['aula'],
+  components:{
+    Details
+  },
+  data (){
+    return {
+      showDetails: false
+    }
+  }
 }
 </script>
 

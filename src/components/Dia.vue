@@ -4,6 +4,8 @@
     <div class="horarios">
       <Horario hora='08' :aulas='aulas'/>
       <Horario hora='10' :aulas='aulas'/>
+      <Horario hora='14' :aulas='aulas'/>
+      <Horario hora='16' :aulas='aulas'/>
     </div>  
   </div>
 </template>

@@ -2,30 +2,29 @@
   <div class="dia">
     <h2>{{dia}}</h2>
     <div class="horarios">
-      <Horario hora='08' :aulas='aulas'/>
-      <Horario hora='10' :aulas='aulas'/>
-      <Horario hora='14' :aulas='aulas'/>
-      <Horario hora='16' :aulas='aulas'/>
+      <Horario hora='08' :aulas='aulas_08'/>
+      <Horario hora='10' :aulas='aulas_10'/>
+      <Horario hora='14' :aulas='aulas_14'/>
+      <Horario hora='16' :aulas='aulas_16'/>
     </div>  
   </div>
 </template>
 
 <script>
 import Horario from './Horario.vue';
+import { log } from 'util';
 export default {
   name: 'dia',
   props: ['dia', 'aulas'],
   components: {
     Horario
   },
-  data() {
-    let { aulas8, aulas10 } = this.aulas;
-    return {
-      aulas8,
-      aulas10
-    }
-  },
-
+  computed: {
+    aulas_08:function () {return this.aulas.filter(aula => aula.horario.hora === "08")},
+    aulas_10:function () {return this.aulas.filter(aula => aula.horario.hora === "10")},
+    aulas_14:function () {return this.aulas.filter(aula => aula.horario.hora === "14")},
+    aulas_16:function () {return this.aulas.filter(aula => aula.horario.hora === "16")},
+  }
 }
 </script>
 

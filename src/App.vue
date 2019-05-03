@@ -11,7 +11,6 @@ import Tabela from './components/Tabela.vue'
 export default {
   name: 'app',
   components: {
-    // HelloWorld    
     Tabela
   }
 }

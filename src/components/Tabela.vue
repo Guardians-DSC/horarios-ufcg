@@ -31,27 +31,28 @@ export default {
   },
   mounted() {
     axios
-      .get('http://localhost:3000/horarios/segunda')
+    
+      .get('https://horarios-cc.herokuapp.com/horarios/segunda')
       .then(response => (
         this.aulas_seg =  response.data
       ))
     axios
-      .get('http://localhost:3000/horarios/terca')
+      .get('https://horarios-cc.herokuapp.com/horarios/terca')
       .then(response => (
         this.aulas_ter =  response.data
       ))
     axios
-      .get('http://localhost:3000/horarios/quarta')
+      .get('https://horarios-cc.herokuapp.com/horarios/quarta')
       .then(response => (
         this.aulas_qua =  response.data
       ))
     axios
-      .get('http://localhost:3000/horarios/quinta')
+      .get('https://horarios-cc.herokuapp.com/horarios/quinta')
       .then(response => (
         this.aulas_qui =  response.data
       ))
     axios
-      .get('http://localhost:3000/horarios/sexta')
+      .get('https://horarios-cc.herokuapp.com/horarios/sexta')
       .then(response => (
         this.aulas_sex =  response.data
       ))

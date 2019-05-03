@@ -4,7 +4,7 @@
 
       <header class="modal-header">
         <slot name="header">
-          Detalhes da disciplina!
+          Detalhes da disciplina
         </slot>
       </header>
 

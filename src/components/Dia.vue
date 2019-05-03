@@ -12,7 +12,6 @@
 
 <script>
 import Horario from './Horario.vue';
-import { log } from 'util';
 export default {
   name: 'dia',
   props: ['dia', 'aulas'],

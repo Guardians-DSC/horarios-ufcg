@@ -1,12 +1,10 @@
 <template>
   <div class="dia">
     <h2>{{dia}}</h2>
-    <div class="horarios">
-      <Horario hora='08' :aulas='aulas_08'/>
-      <Horario hora='10' :aulas='aulas_10'/>
-      <Horario hora='14' :aulas='aulas_14'/>
-      <Horario hora='16' :aulas='aulas_16'/>
-    </div>  
+    <Horario hora='08' :aulas='aulas_08'/>
+    <Horario hora='10' :aulas='aulas_10'/>
+    <Horario hora='14' :aulas='aulas_14'/>
+    <Horario hora='16' :aulas='aulas_16'/>
   </div>
 </template>
 
@@ -30,6 +28,9 @@ export default {
 <style>
   div.dia {
     min-height: 400px;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 50px repeat(4, 1fr);
     background: skyblue;
     border-radius: 10px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);

@@ -28,7 +28,7 @@ export default {
 <style>
   .aula {
     padding: 3px 7px;
-    background: greenyellow;
+    background: #aeaec2;
     border-radius: 10px;
     margin-right: 4px;
     margin-bottom: 6px;

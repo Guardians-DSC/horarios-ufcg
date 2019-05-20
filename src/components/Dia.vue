@@ -31,13 +31,13 @@ export default {
     height: 100%;
     display: grid;
     grid-template-rows: 50px repeat(4, 1fr);
-    background: skyblue;
+    background: #7197E4;
     border-radius: 10px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
   }
 
   div.dia h2 {
-    background: deepskyblue;
+    background: #324B9A;
     color: white;
     margin: 0;
     padding: 10px 0;

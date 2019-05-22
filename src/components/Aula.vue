@@ -1,8 +1,10 @@
 <template>
 
-  <div class="aula" @click="showDetails = !showDetails">
-    <span>{{aula.disciplina}}-{{aula.turma}}</span>
-    <Modal v-if="showDetails == true" :aula='aula'> </Modal>
+  <div class="aula">
+    <div class="box" @click="showDetails = true">
+      <span>{{aula.disciplina}}-{{aula.turma}}</span>
+    </div>
+    <Modal v-if="showDetails == true" @close="showDetails = false"  :aula='aula'> </Modal>
   </div>
   
 </template>
@@ -27,11 +29,13 @@ export default {
 
 <style>
   .aula {
-    padding: 3px 7px;
-    background: #aeaec2;
-    border-radius: 10px;
     margin-right: 4px;
     margin-bottom: 6px;
     flex-grow: 1; 
+  }
+  .box {
+    padding: 3px 7px;
+    background: #aeaec2;
+    border-radius: 10px;
   }
 </style>

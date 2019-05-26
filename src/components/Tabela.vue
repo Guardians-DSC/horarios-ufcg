@@ -64,6 +64,6 @@ export default {
   div.dias {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
+    grid-gap: 5px;
   }
 </style>

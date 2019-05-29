@@ -33,6 +33,11 @@ export default {
     margin-bottom: 6px;
     flex-grow: 1; 
   }
+  .box:hover {
+    background: #c5c5cc;
+    color:#324B9A; 
+    cursor: pointer;
+  }
   .box {
     padding: 3px 7px;
     background: #aeaec2;

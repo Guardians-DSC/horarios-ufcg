@@ -10,11 +10,11 @@
 
       <section class="modal-body">
         <slot name="body">
-          Nome: {{aula.disciplina}}
-          <br> Sala: {{aula.sala}}
-          <br> Turma: {{aula.turma}}
-          <br> Professor: {{aula.professor}}
-          <br>Categoria: {{aula.categoria}}
+          <h4>Sigla</h4> <label>{{aula.disciplina}}</label>
+          <h4>Sala</h4> <label>{{aula.sala}}</label>
+          <h4>Turma</h4> <label>{{aula.turma}}</label>
+          <h4>Professor</h4> <label>{{aula.professor}}</label>
+          <h4>Categoria</h4> <label>{{aula.categoria}}</label>
         </slot>
        </section>
 
@@ -24,7 +24,7 @@
               type="button"
               class="btn-green"
               @click="close">
-              Fechar!
+              Fechar
           </button>
         </slot>
       </footer>
@@ -73,8 +73,10 @@
 
   .modal-header {
     border-bottom: 1px solid #eeeeee;
-    color: rgb(35, 78, 70);
-    justify-content: space-between;
+    color: #FFFFFF;
+    justify-content: center;
+    font-size: 18px;
+    background: #324b9a;
   }
 
   .modal-footer {
@@ -83,9 +85,20 @@
   }
 
   .modal-body {
+    font-size: 18px;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-row-gap: 8px;
+    grid-column-gap: 20px;
     position: relative;
-    padding: 20px 10px;
-    color: #4AAE9B;
+    padding: 20px 50px;
+    color: #445b89;
+    text-align: left;
+  }
+
+  .modal-body h4{
+    margin: 0;
+    color: #293752;
   }
 
   .btn-close {
@@ -100,8 +113,14 @@
 
   .btn-green {
     color: white;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
+    background: #324b9a;
+    border: 1px solid #324b9a;
     border-radius: 2px;
+    cursor: pointer;
   }
+  .btn-green:hover{
+    background-color: #324a9ae5;
+  }
+
+
 </style>

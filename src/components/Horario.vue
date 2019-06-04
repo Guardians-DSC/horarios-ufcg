@@ -27,7 +27,7 @@ export default {
     padding-bottom: 10px;
   }
 
-  .horario h4 {
+  .horario > h4 {
     margin: 0;
     padding: 5px 0;
     background: rgba(0, 0, 0, 0.4);

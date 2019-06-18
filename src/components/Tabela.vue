@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Horarios</h1>
+    <h1>Horários UFCG@Computação</h1>
     <div class='dias'>
       <Dia dia='Segunda' :aulas='aulas_seg'/>
       <Dia dia='Terça' :aulas='aulas_ter'/>

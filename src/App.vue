@@ -23,7 +23,7 @@ html, body { margin: 0; padding: 0; }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background: #FaFaFa;
+  background: #aeaec2;
   color: #2c3e50;
   padding: 40px;
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Horarios</h1>
+    <h1>Horários UFCG@ <span>{{curso}}</span> </h1>
     <div class='dias'>
       <Dia dia='Segunda' :aulas='aulas_seg'/>
       <Dia dia='Terça' :aulas='aulas_ter'/>
@@ -22,6 +22,7 @@ export default {
   },
   data() {
     return {
+      curso: "Computação",
       aulas_seg: [],
       aulas_ter: [],
       aulas_qua: [],
@@ -65,5 +66,17 @@ export default {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 5px;
+  }
+
+  h1 {
+    margin-top: 0%;
+    color: white;
+    background-color: #aeaec2;
+    text-align: left;
+  }
+
+  h1 span {
+    margin: 0% 0% 0% 0%;
+    color: #324B9A;
   }
 </style>

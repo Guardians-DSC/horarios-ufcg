@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>blablabla</p>
+       
     </div>
 </template>
 
@@ -12,8 +12,6 @@ export default {
 
 <style>
 
-p {
-    size: 400 px;
-}
+
 
 </style>

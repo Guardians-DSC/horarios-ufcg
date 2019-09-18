@@ -24,8 +24,9 @@ html, body { margin: 0; }
 #app {
   margin: 0px 0px 0px 0px;
   padding: 0;
+  font-family: sans-serif;
 }
 
-div#app > div.horario:nth-child(even) { background: white; }
-div#app > div.horario:nth-child(odd) { background: lightgrey; }
+div#app div.horario:nth-child(even) { background: white; }
+div#app div.horario:nth-child(odd) { background: #EEEEEE; }
 </style>

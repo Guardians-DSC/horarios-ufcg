@@ -2,14 +2,6 @@
   <div class='horario'>
     <h4>{{hora}}h</h4>
     <div class='dias'>
-      <!-- <Dia v-for="(dia, index) in dias" :key="index" :dia="dia"></Dia> -->
-      <!-- <div v-for="(dia, index) in dias" :key="index" class="dia">
-        <div>aula</div>
-        <div>aula</div>
-        <div>aula</div>
-        <div>aula</div>
-        <div>aula</div>
-      </div> -->
     </div>
   </div>
 </template>
@@ -27,34 +19,40 @@ export default {
       return {
         curso: "Computação",
         host: 'http://localhost:3000',
-        dias: []
+        dias: {
+          segunda: [],
+          terca: [],
+          quarta: [],
+          quinta: [],
+          sexta: []
+        }
     }
   },
   mounted() {
     axios
       .get(`${this.host}/horarios/segunda/${this.hora}`)
       .then(response => (
-        this.dias.push(response.data)
+        this.dias.segunda = response.data
       ))
     axios
       .get(`${this.host}/horarios/terca/${this.hora}`)
       .then(response => (
-        this.dias.push(response.data)
+        this.dias.terca = response.data
       ))
     axios
       .get(`${this.host}/horarios/quarta/${this.hora}`)
       .then(response => (
-        this.dias.push(response.data)
+        this.dias.quarta = response.data
       ))
     axios
       .get(`${this.host}/horarios/quinta/${this.hora}`)
       .then(response => (
-        this.dias.push(response.data)
+        this.dias.quinta = response.data
       ))
     axios
       .get(`${this.host}/horarios/sexta/${this.hora}`)
       .then(response => (
-        this.dias.push(response.data)
+        this.dias.sexta = response.data
       ))
   }
 }
@@ -64,30 +62,25 @@ export default {
   div.dias {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 5px;
-  }
-/* 
-  div.dia {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
   }
 
-  div.dia > * { margin: 5px; background: deepskyblue; height: 20px; padding: 2px 10px; } */
+  div.dias > * {
+    border-right: 2px solid #D9D9D9;
+  }
 
   div.horario {
     display: grid;
     grid-template-columns: 60px 1fr;
     grid-gap: 5px;
-    border-top: 2px solid #EEEEEE;
     height: 20vh;
+    border-top: 1px solid #E3EAF0;
   }
   
   h4 {
     display: flex;
     height: 100%;
     margin: 0;
-    color: #544081;
+    color: #8A308E;
     align-items: center;
     justify-content: center;
   }

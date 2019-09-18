@@ -1,7 +1,7 @@
 <template>
     <div class="aula">
         <div class="box" v-bind:class="{ 'ativado': isActive }" 
-            @click="showDetails = true; isActive=!isActive">
+            @click="showDetails = true" @click.right="isActive=!isActive">
             {{aula.disciplina}}-{{aula.turma}}
         </div>
         <Modal v-if="showDetails == true" @close="showDetails = false"  :aula='aula'/>

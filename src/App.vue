@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navbar/>
+    <Navbar/>
     <Tabela/>
   </div>
 </template>
@@ -18,8 +18,10 @@ export default {
 </script>
 
 <style>
+html, body { margin: 0; }
 #app {
-  margin: 0px;
-  padding: 0px;
+  margin: 0px 0px 0px 0px;
+  padding: 0;
+  font-family: sans-serif;
 }
 </style>

@@ -1,8 +1,7 @@
 <template>
   <div class='horario'>
     <h4>{{hora}}h</h4>
-    <div class='dias'>
-    </div>
+    <dia/>
   </div>
 </template>
 

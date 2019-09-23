@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="navbar">
         <h1>
             <span id="curso">{{curso}}</span>
-            <span id="titulo"> Horários UFCG </span>
+            <span id="titulo"><b>Horários</b> UFCG </span>
             <span id="icon-search"><img src="@/assets/magnifying-glass.png" alt=""></span>
         </h1>
     </div>
@@ -20,10 +20,8 @@ export default {
 </script>
 
 <style>
-    template {
-        position: absolute;
-    }
-    div{
+
+    .navbar{
         -webkit-box-shadow: 1px 3px 6px 0px rgba(56, 50, 50, 0.42);
         -moz-box-shadow:    1px 3px 6px 0px rgba(56, 50, 50, 0.42);
         box-shadow:         1px 3px 6px 0px rgba(56, 50, 50, 0.42); 
@@ -34,6 +32,9 @@ export default {
 
         background-color: #AD3DB3;
         color: #E8E8E8; 
+
+        margin-top: 0px;
+        margin-bottom: 0px;
 
         text-align: center;
         font-family: 'Times New Roman', Times, serif;

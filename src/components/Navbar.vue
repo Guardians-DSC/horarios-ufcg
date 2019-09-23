@@ -28,7 +28,7 @@ export default {
     }
     h1 {
         display: grid;
-        grid-template-columns: 1fr 4fr min-content;
+        grid-template-columns: auto 1fr min-content;
 
         background-color: #AD3DB3;
         color: #E8E8E8; 
@@ -43,7 +43,7 @@ export default {
     #curso {
         background-color: #8A308E;
         font-size: 25px;
-        padding-top: 5px;
+        padding: 8px;
     }
 
     #icon-search{

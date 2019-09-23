@@ -1,5 +1,12 @@
 <template>
-    <div>
+    <div class="table">
+        <div class="header-dias">
+            <span id="seg">SEG</span>
+            <span id="ter">TER</span>
+            <span id="qua">QUA</span>
+            <span id="qui">QUI</span>
+            <span id="sex">SEX</span>
+        </div>
        <horario hora='08'></horario>
         <horario hora='10'></horario>
         <horario hora='14'></horario>
@@ -19,11 +26,33 @@ export default {
 
 <style>
 
+.table{
+    margin-top: 30px;
+}
+
 div.horario:nth-child(even) {
-        background: white;
+        background: #EEEEEE;
     }
 div.horario:nth-child(odd) {
-        background: #EEEEEE; 
+        background: white; 
     }
+
+.header-dias {
+    display: grid;
+    grid-template-columns: 60px 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+
+    text-align: center;
+    color: #626161;
+}
+
+.header-dias span{
+    padding: 10px;
+    border-right: 2px solid #D9D9D9;
+}
+
+#seg {
+    grid-column: 2/3;
+}
 
 </style>

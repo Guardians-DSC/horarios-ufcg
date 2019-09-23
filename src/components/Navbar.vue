@@ -20,9 +20,8 @@ export default {
 </script>
 
 <style>
-    template{
-        margin: 0px;
-        padding: 0px;  
+    template {
+        position: absolute;
     }
     div{
         -webkit-box-shadow: 1px 3px 6px 0px rgba(56, 50, 50, 0.42);

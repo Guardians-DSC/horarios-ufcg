@@ -39,7 +39,7 @@ div.horario:nth-child(odd) {
 
 .header-dias {
     display: grid;
-    grid-template-columns: 60px 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 65px 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 5px;
 
     text-align: center;

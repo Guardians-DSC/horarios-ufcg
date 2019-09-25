@@ -7,8 +7,8 @@
 <script>
 import Aula from './Aula.vue';
 export default {
-  name: 'horario',
-  props: ['hora', 'aulas'],
+  name: 'dia',
+  props: ['aulas'],
   components: {
     Aula
   }

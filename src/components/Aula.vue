@@ -31,8 +31,9 @@ export default {
     }
 
     .box{
+        margin: 1px;
         font-weight: bold;
-        font-size: 11px;
+        font-size: 12px;
         padding-left: 6px;
         padding-right: 6px;
         border-radius: 4px;

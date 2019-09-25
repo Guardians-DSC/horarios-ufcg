@@ -7,7 +7,7 @@
             <span id="qui">QUI</span>
             <span id="sex">SEX</span>
         </div>
-       <horario hora='08'></horario>
+        <horario hora='08'></horario>
         <horario hora='10'></horario>
         <horario hora='14'></horario>
         <horario hora='16'></horario>

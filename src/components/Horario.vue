@@ -78,7 +78,6 @@ export default {
     display: grid;
     grid-template-columns: 60px 1fr;
     grid-gap: 5px;
-    height: 20vh;
     border-top: 1px solid #E3EAF0;
   }
   

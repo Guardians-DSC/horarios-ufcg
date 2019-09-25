@@ -1,7 +1,9 @@
 <template>
     <div class="navbar">
         <h1>
-            <span id="curso">{{curso}}</span>
+            <div id="curso">
+                <span>{{curso}}</span>
+            </div>
             <span id="titulo"><b>Horários</b> UFCG </span>
             <span id="icon-search"><img src="@/assets/magnifying-glass.png" alt=""></span>
         </h1>
@@ -28,7 +30,8 @@ export default {
     }
     h1 {
         display: grid;
-        grid-template-columns: auto 1fr min-content;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
 
         background-color: #AD3DB3;
         color: #E8E8E8; 
@@ -42,16 +45,21 @@ export default {
 
     #curso {
         background-color: #8A308E;
-        font-size: 25px;
+        font-size: 20px;
         padding: 8px;
+        justify-self: start;
     }
 
     #icon-search{
+        justify-self: end;
         align-content: center;
-        padding: 2%;
         margin-bottom: 5px;
         margin-left: 15px;
         margin-right: 15px;
+    }
+
+    #titulo{
+        font-weight: lighter;
     }
 
 </style>

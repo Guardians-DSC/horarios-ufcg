@@ -1,7 +1,13 @@
 <template>
   <div class='horario'>
     <h4>{{hora}}h</h4>
-    <dia/>
+    <div class="dias">
+      <dia :aulas="this.dias.segunda"/>
+      <dia :aulas="this.dias.terca"/>
+      <dia :aulas="this.dias.quarta"/>
+      <dia :aulas="this.dias.quinta"/>
+      <dia :aulas="this.dias.sexta"/>
+    </div>
   </div>
 </template>
 
@@ -65,6 +71,7 @@ export default {
 
   div.dias > * {
     border-right: 2px solid #D9D9D9;
+    padding: 10px;
   }
 
   div.horario {

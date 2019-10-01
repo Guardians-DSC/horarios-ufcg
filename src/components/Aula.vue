@@ -54,14 +54,14 @@ export default {
     }
 
     .ativado{
-        background-color: #AD3DB3;
-        border: 2px solid #8B2091;
+        background-color: #521782;
+        border: 2px solid #421268;
         color: rgb(255, 255, 255);
     }
 
     .ativado:hover{
-        background-color: rgb(164, 14, 172);
-        border: 2px solid #8B2091;
+        background-color: #48067e;
+        border: 2px solid #421268;
     }
 
 </style>

@@ -6,7 +6,7 @@
       <dia :aulas="this.dias.terca"/>
       <dia :aulas="this.dias.quarta"/>
       <dia :aulas="this.dias.quinta"/>
-      <dia :aulas="this.dias.sexta"/>
+      <dia :aulas="this.dias.sexta" style='border-right: 0px;'/>
     </div>
   </div>
 </template>

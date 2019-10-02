@@ -66,7 +66,7 @@ export default {
 
     @media screen and (min-width: 1920px) {
       .box {
-            font-size: 16px;
+            font-size: 14px;
             margin: 2px;
        }
     }

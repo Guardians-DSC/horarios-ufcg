@@ -7,12 +7,13 @@
       </header>
       <hr>
       <section class="modal-body">
-          <p>Sigla: {{aula.disciplina}}</p>
-          <p>Sala: {{aula.sala}}</p>
-          <p>Turma: {{aula.turma}}</p>
+          <p>Disciplina: {{aula.disciplina}}</p>
           <p>Professor: {{aula.professor}}</p>
-          <p>Categoria: {{aula.categoria}}</p>
-      </section>      
+          <p>Tipo: {{aula.categoria}}</p>
+          <p>Turma: {{aula.turma}}</p>
+          <p>Sala: {{aula.sala}}</p>
+          <p>Horário: {{aula.horario.dia}} {{aula.horario.hora}}h</p>
+      </section>
     </div>
   </div>
 </template>
@@ -59,10 +60,10 @@
   }
 
   .modal-body {
-    width: 230px;
+    min-width: 240px;
     font-size: 18px;
     position: relative;
-    padding: 10px 30px;
+    padding: 10px 40px;
     color: #47525E;
     text-align: left;
   }
@@ -73,6 +74,7 @@
   }
 
   p, h4{
+    font-weight: lighter;
     margin: 0;
   }
 
@@ -80,7 +82,8 @@
     color: rgba(151, 148, 148, 0.74);
     position: absolute;
     cursor: pointer;
-    top: 7px;
-    right: 10px;
+    top: 3px;
+    right: 12px;
+    font-size: 22px;
   }
 </style>

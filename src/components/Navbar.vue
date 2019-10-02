@@ -34,7 +34,7 @@ export default {
         grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
 
-        background-color: #AD3DB3;
+        background-color: #521782;
         color: #E8E8E8; 
 
         margin-top: 0px;
@@ -45,7 +45,7 @@ export default {
     }
 
     #curso {
-        background-color: #8A308E;
+        background-color: #421268;
         font-size: 20px;
         padding: 13px;
         justify-self: start;

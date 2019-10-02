@@ -5,7 +5,7 @@
                 {{curso}}
             </div>
             <span id="titulo"><b>Horários</b> UFCG </span>
-            <span id="icon-search"><img src="@/assets/magnifying-glass.png" alt=""></span>
+            <span id="icon-search"><i class="fas fa-search"></i></span>
         </h1>
     </div>
 </template>
@@ -56,10 +56,8 @@ export default {
 
     #icon-search{
         justify-self: end;
-        align-content: center;
-        margin-bottom: 5px;
-        margin-left: 15px;
-        margin-right: 15px;
+        font-size: 24px;
+        margin-right:16px;
     }
 
     #titulo{

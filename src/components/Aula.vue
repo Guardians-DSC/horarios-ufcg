@@ -31,11 +31,10 @@ export default {
     }
 
     .box{
-        margin: 1px;
+        margin: 2px;
         font-weight: bold;
         font-size: 12px;
-        padding-left: 6px;
-        padding-right: 6px;
+        padding: 4px 6px;
         border-radius: 4px;
         background-color: #E1DFDF;
         border: 2px solid #CECECE;

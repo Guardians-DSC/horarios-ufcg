@@ -73,7 +73,7 @@
     border-color: rgba(185, 185, 185, 0.349);
   }
 
-  p, h4{
+  .modal-backdrop h4, p{
     font-weight: lighter;
     margin: 0;
   }

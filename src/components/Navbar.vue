@@ -27,6 +27,9 @@ export default {
         -webkit-box-shadow: 1px 3px 6px 0px rgba(56, 50, 50, 0.42);
         -moz-box-shadow:    1px 3px 6px 0px rgba(56, 50, 50, 0.42);
         box-shadow:         1px 3px 6px 0px rgba(56, 50, 50, 0.42); 
+        position: fixed;
+        top: 0;
+        width: 100%;
     }
     h1 {
         display: grid;

@@ -64,4 +64,10 @@ export default {
         border: 2px solid #8B2091;
     }
 
+    @media screen and (min-width: 1920px) {
+      .box {
+            font-size: 16px;
+            margin: 2px;
+       }
+    }
 </style>

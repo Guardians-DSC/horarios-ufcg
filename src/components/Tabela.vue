@@ -5,7 +5,7 @@
             <span id="ter">TER</span>
             <span id="qua">QUA</span>
             <span id="qui">QUI</span>
-            <span id="sex">SEX</span>
+            <span id="sex" style='border-right: 0px;'>SEX</span>
         </div>
         <horario hora='08'></horario>
         <horario hora='10'></horario>
@@ -27,7 +27,7 @@ export default {
 <style>
 
 .table{
-    margin-top: 30px;
+    margin-top: 70px;
 }
 
 div.horario:nth-child(even) {

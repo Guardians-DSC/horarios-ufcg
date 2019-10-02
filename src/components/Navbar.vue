@@ -49,7 +49,6 @@ export default {
         font-size: 20px;
         padding: 13px;
         justify-self: start;
-        margin-bottom: 0px;
     }
 
     #icon-search{

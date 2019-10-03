@@ -23,7 +23,7 @@ export default {
     data() {
       return {
         curso: "Computação",
-        host: 'http://localhost:3000',
+        host: 'https://horarios-cc-api.herokuapp.com',
         dias: {
           segunda: [],
           terca: [],

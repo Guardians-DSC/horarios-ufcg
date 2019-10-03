@@ -49,6 +49,7 @@
     flex-direction: column;
     border-radius: 5px;
     padding-bottom: 20px;
+    font-family: 'Roboto-mono';
   }
   .modal-header {
     position: relative;
@@ -86,4 +87,10 @@
     right: 12px;
     font-size: 22px;
   }
+
+    @font-face {
+      font-family: Roboto-mono;
+      src: url('../assets/RobotoMono-Regular.ttf');
+    }
+
 </style>

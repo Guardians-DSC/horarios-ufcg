@@ -44,7 +44,7 @@ export default {
         margin-bottom: 0px;
 
         text-align: center;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: 'Montserrat', sans-serif;
     }
 
     #curso {
@@ -63,6 +63,12 @@ export default {
     #titulo{
         font-weight: lighter;
     }
+
+    @font-face {
+        font-family: Montserrat;
+        src: url('../assets/Montserrat-SemiBold.ttf');
+    }
+
 
 </style>
 

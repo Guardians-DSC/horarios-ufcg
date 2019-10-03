@@ -32,6 +32,7 @@ export default {
 
     .box{
         margin: 2px;
+        font-family: 'Roboto-mono', sans-serif;
         font-weight: bold;
         font-size: 12px;
         padding: 4px 6px;
@@ -68,5 +69,10 @@ export default {
             font-size: 14px;
             margin: 2px;
        }
+    }
+
+    @font-face {
+        font-family: Roboto-mono;
+        src: url('../assets/RobotoMono-Regular.ttf');
     }
 </style>

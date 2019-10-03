@@ -52,6 +52,7 @@ export default {
         font-size: 20px;
         padding: 13px;
         justify-self: start;
+        font-weight: lighter;
     }
 
     #icon-search{

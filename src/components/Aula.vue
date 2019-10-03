@@ -34,7 +34,7 @@ export default {
         margin: 2px;
         font-family: 'Roboto-mono', sans-serif;
         font-weight: bold;
-        font-size: 12px;
+        font-size: 11px;
         padding: 2px 6px;
         border-radius: 4px;
         background-color: #E1DFDF;

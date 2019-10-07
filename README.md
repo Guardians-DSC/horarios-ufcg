@@ -1,22 +1,22 @@
 # Horarios UFCG
 
-Visualização dos horários das discplina dos curso da UFCG, a princípio do curso de Ciência da Computação.
+Visualização dos horários das discplina dos cursos da UFCG, a princípio do curso de Ciência da Computação.
 
 ## Objetivo
 
-O Horarios UFCG vai ajudar o alunos da UFCG a visualizar melhor conflitos entre disciplina e organizar o seus horários, fornecendo uma visualização amigável.
+O Horarios UFCG vai ajudar o aluno da UFCG a visualizar melhor conflitos entre disciplinas e organizar o seu horário, fornecendo uma visualização amigável.
 
 ## Como contribuir
 
-Primeiramente seja bem vindo ao nosso projeto e a nossa equipe está totalmente disponível para tirar qualquer dúvidas que surgirem. Mas vamos lá, como contribuir? Você pode dar uma olhada nas issues abertas e tentar resolver alguma ou você pode abrir um nova. Quer corrigir um bug que você achou? Abre uma issue. Quer adicionar uma funcionalidade bem legal? Abre uma issue. 
+Primeiramente seja bem vindo ao nosso projeto e a nossa equipe está totalmente disponível para tirar qualquer dúvidas que surgirem. Mas vamos lá, como contribuir? Você pode dar uma olhada nas issues abertas e tentar resolver alguma ou você pode abrir um nova. Quer corrigir um bug que você achou? Abra uma issue. Quer adicionar uma funcionalidade bem legal? Abra uma issue. 
 
-Outra coisa, discussões também são contribuições e muito bem vindas no nosso projeto. Então se você não está afim de codar, mas quer entender alguma coisa do projeto? Ou dar aquela dica massa para nos ajudar? Abre uma issue também, lá nós podemos conversar sobre o projeto, tirar suas dúvidas e aprender com você também. 
+Outra coisa, discussões também são contribuições e muito bem vindas no nosso projeto. Então se você não está afim de codar, mas quer entender alguma coisa do projeto? Ou dar aquela dica massa para nos ajudar? Abra uma issue, lá nós podemos conversar sobre o projeto, tirar suas dúvidas e aprender com você também. 
 
 Iae, o que você está esperando? Bora Contribuir!!
 
 ## Como executar localmente
 
-O Horarios UFCG é feito em [Vue](https://vuejs.org/) e para executar localmente você precisa abrir o terminar e:
+O Horarios UFCG é feito em [Vue](https://vuejs.org/) e para executá-lo localmente você precisa abrir um terminal e:
 
 ### Clonar o projeto:
 
@@ -31,7 +31,7 @@ cd horario-cc
 npm install
 ```
 
-### Rodando localmente
+### Rodar localmente
 
 ```
 npm run serve

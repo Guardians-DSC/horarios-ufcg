@@ -43,7 +43,7 @@ export default {
 
     .box:hover{
         background-color: #8948bf;
-        border: 2px solid #8948bf;
+        border: 2px solid #671FA3;
         color: #ffffff;
         transform: scale(1.04);
         cursor: pointer;

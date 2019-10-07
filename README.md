@@ -1,10 +1,10 @@
-# Horarios cc
+# Horarios UFCG
 
-Visualização dos horários das discplina do curso de Ciência da Computação.
+Visualização dos horários das discplina dos curso da UFCG, a princípio do curso de Ciência da Computação.
 
 ## Objetivo
 
-O Horarios CC vai ajudar o aluno de Computação da UFCG a organizar o seu horário de disciplinas, fornecendo uma visualização amigável.
+O Horarios UFCG vai ajudar o alunos da UFCG a visualizar melhor conflitos entre disciplina e organizar o seus horários, fornecendo uma visualização amigável.
 
 ## Como contribuir
 
@@ -16,7 +16,7 @@ Iae, o que você está esperando? Bora Contribuir!!
 
 ## Como executar localmente
 
-O Horarios CC é feito em [Vue](https://vuejs.org/) e para executar localmente você precisa abrir o terminar e:
+O Horarios UFCG é feito em [Vue](https://vuejs.org/) e para executar localmente você precisa abrir o terminar e:
 
 ### Clonar o projeto:
 

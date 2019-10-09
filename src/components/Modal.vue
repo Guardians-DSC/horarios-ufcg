@@ -12,7 +12,6 @@
           <p>Tipo: {{aula.categoria}}</p>
           <p>Turma: {{aula.turma}}</p>
           <p>Sala: {{aula.sala}}</p>
-          <p>Horário: {{aula.horario.dia}} {{aula.horario.hora}}h</p>
       </section>
     </div>
   </div>

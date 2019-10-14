@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-backdrop" @click="close">
+  <div class="modal-backdrop" @click.self="close">
     <div class="modal">
       <header class="modal-header">
           <h4>DETALHES</h4>

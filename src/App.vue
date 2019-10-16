@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Navbar/>
-    <Tabela/>
+    <dir class="container-table">
+      <Tabela/>
+    </dir>
   </div>
 </template>
 
@@ -24,5 +26,12 @@ html, body { margin: 0; }
   padding: 0;
   font-family: sans-serif;
   background-color: white;
+}
+
+.container-table{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x:auto;
 }
 </style>

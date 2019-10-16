@@ -32,7 +32,7 @@ export default {
         color: #E8E8E8; 
         font-family: 'Montserrat', sans-serif;
     }
-
+    
     div.navbar > h1 {
         margin: 0;
         padding: 0;
@@ -56,6 +56,17 @@ export default {
         font-size: 24px;
         padding: 0 16px;
         justify-self: flex-end;
+    }
+
+    @media screen and (max-width: 900px) {
+        #curso {
+              font-size: 15px;
+              padding: 13px;
+        }
+
+        div.navbar > h1 {
+            font-size: 25px;
+        }
     }
 
     @font-face {

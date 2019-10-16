@@ -27,7 +27,13 @@ export default {
 <style>
 
 .table{
-    margin-top: 70px;
+    display: inline-block;
+    margin-top: 80px;
+    min-width: 900px;
+}
+
+.horario{
+    width: 100%;
 }
 
 div.horario:nth-child(even) {

@@ -27,15 +27,27 @@ export default {
 <style>
 
 .table{
-    margin-top: 70px;
+    display: inline-block;
+    margin-top: 80px;
+    min-width: 900px;
+}
+
+@media screen and (min-width: 900px) {
+      .table{
+        width: 100%;
+      }
+  }
+
+.horario{
+    width: 100%;
 }
 
 div.horario:nth-child(even) {
-        background: #EEEEEE;
-    }
+    background: #EEEEEE;
+}
 div.horario:nth-child(odd) {
-        background: white; 
-    }
+    background: white; 
+}
 
 .header-dias {
     display: grid;

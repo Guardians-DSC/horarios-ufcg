@@ -1,6 +1,6 @@
 <template>
   <div class='horario'>
-    <h4>{{hora}}h</h4>
+    <h4 class="hora">{{hora}}h</h4>
     <div class="dias">
       <dia :aulas="this.dias.segunda"/>
       <dia :aulas="this.dias.terca"/>
@@ -67,6 +67,12 @@ export default {
   div.dias {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media screen and (max-width: 500px) {
+      .aulas{
+        width: calc(100vw - 30px);
+      }
   }
 
   div.dias > * {

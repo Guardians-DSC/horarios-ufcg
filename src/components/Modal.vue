@@ -1,6 +1,6 @@
 <template>
   <div class="modal-backdrop" @click.self="close">
-    <div class="modal">
+    <div class="modal" ref="modal" @keyup.esc="close" tabindex="0">
       <header class="modal-header">
           <h4>DETALHES</h4>
           <span class="cross-icon" @click="close">&#10005;</span>
@@ -21,6 +21,11 @@
   export default {
     name: 'modal',
     props: ['aula'],
+    mounted: function () {
+      this.$nextTick(function () {
+        this.$refs.modal.focus();
+      })
+    },
     methods: {
       close() {
         this.$emit('close');

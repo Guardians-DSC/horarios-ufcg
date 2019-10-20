@@ -21,8 +21,8 @@ O Horarios UFCG é feito em [Vue](https://vuejs.org/) e para executá-lo localme
 ### Clonar o projeto:
 
 ```
-git clone https://github.com/Guardians-DSC/horarios-cc.git
-cd horario-cc
+git clone https://github.com/Guardians-DSC/horarios-ufcg.git
+cd horarios-ufcg
 ```
 
 ### Instalar dependências 

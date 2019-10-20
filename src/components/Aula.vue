@@ -1,7 +1,13 @@
 <template>
     <div class="aula">
-        <div class="box" :ref="'.' + aula.disciplina + '.' + aula.turma" v-bind:class="[aula.disciplina, aula.turma, { 'ativado': isActive }]" 
-            @click="isActive=!isActive;" @click.right="showDetails = true" @contextmenu.capture.prevent>
+        <div
+            class="box"
+            :ref="'.' + identifier"
+            v-bind:class="[aula.disciplina, aula.turma, { 'ativado': isActive }]" 
+            @click="toggleState()"
+            @click.right="showDetails = true"
+            @contextmenu.capture.prevent
+        >
             {{aula.disciplina}}-{{aula.turma}}
         </div>
         <Modal v-if="showDetails == true" @close="showDetails = false" :aula='aula' />
@@ -16,12 +22,16 @@ export default {
     components: {
         Modal
     },
+    mounted() {
+        this.isActive = this.haveDisciplineInStore();
+    },
     updated: function() {
         this.$nextTick(function() {
             for (var classe in this.$refs) {
                 const ativado = this.$refs[classe].className.includes('ativado')
                 const classes = document.querySelectorAll(classe)
 
+                if (!classes[0] || !classes[1]) return;
                 if (classes[0].className != classes[1].className) {
                     if (ativado) classes[0].className.includes('ativado') ? classes[1].click() : classes[0].click()
                     else classes[0].className.includes('ativado') ? classes[0].click() : classes[1].click()
@@ -35,6 +45,54 @@ export default {
             showDetails: false
         }
     },
+    computed: {
+        identifier() {
+            return `${this.aula.disciplina}.${this.aula.turma}`;
+        }
+    },
+    methods: {
+        toggleState() {
+            this.isActive = !this.isActive;
+            this.updateStorage();
+        },
+        updateStorage() {
+            const disciplinesIdentifier = this.getUpdatedDisciplinesIdentifier();
+            this.addDisciplineIdentifierToStorage(disciplinesIdentifier);
+        },
+        getUpdatedDisciplinesIdentifier() {
+            if(this.isActive) {
+                return this.addDisciplineIfNotExists();
+            }
+            return this.removeDicipline();
+        },
+        addDisciplineIfNotExists() {
+            if (this.haveDisciplineInStore()) {
+                return this.getStoreDisciplineIdentifier();
+            }
+            return this.getStoreDisciplineIdentifier().concat(this.identifier);
+        },
+        haveDisciplineInStore() {
+            return this.getStoreDisciplineIdentifier()
+                .some(discipline => discipline === this.identifier);
+        },
+        getStoreDisciplineIdentifier() {
+            if (!window.localStorage) {
+                return [];
+            }
+            return JSON.parse(window.localStorage.getItem('disciplinesIdentifier')) || [];
+        },
+        removeDicipline() {
+            return this.getStoreDisciplineIdentifier()
+                .filter((discipline) => discipline !== this.identifier);
+        },
+        addDisciplineIdentifierToStorage(disciplinesIdentifier = []) {
+            if (!window.localStorage) return;
+            window.localStorage.setItem(
+                'disciplinesIdentifier',
+                JSON.stringify(disciplinesIdentifier)
+            );
+        },
+    }
 }
 </script>
 

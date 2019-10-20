@@ -8,6 +8,7 @@
       <hr>
       <section class="modal-body">
           <p>Disciplina: {{aula.disciplina}}</p>
+          <p>Nome: {{aula.nome}}</p>
           <p>Professor: {{aula.professor}}</p>
           <p>Tipo: {{aula.categoria}}</p>
           <p>Turma: {{aula.turma}}</p>

@@ -98,7 +98,7 @@ export default {
 
 <style>
 .aula {
-    display: inline-block;
+    flex-grow: 2;
 }
 
 .box {
@@ -110,6 +110,7 @@ export default {
     border-radius: 4px;
     background-color: #E1DFDF;
     border: 2px solid #CECECE;
+    text-align: center;
 }
 
 .box:hover {

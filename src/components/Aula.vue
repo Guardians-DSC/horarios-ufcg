@@ -1,7 +1,8 @@
 <template>
     <div class="aula">
-        <div class="box" v-bind:class="{ 'ativado': isActive }" 
-            @click="showDetails = true" @click.right="isActive=!isActive" @contextmenu.capture.prevent>
+        <div class="box" v-bind:class="{ 'ativado': aula.ativado }" 
+            @click="showDetails = true" @click.right="ativa" 
+            @contextmenu.capture.prevent>
             {{aula.disciplina}}-{{aula.turma}}
         </div>
         <Modal v-if="showDetails == true" @close="showDetails = false"  :aula='aula'/>
@@ -15,6 +16,11 @@ export default {
     props: ['aula'],
     components:{
         Modal
+    },
+    methods: {
+        ativa() {
+            this.$store.commit('setAula', this.aula)
+        }
     },
     data (){
         return {

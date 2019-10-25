@@ -28,7 +28,7 @@ html, body { margin: 0; }
   background-color: white;
 }
 
-.container-table{
+.container-table {
   margin: 0;
   padding: 0;
   width: 100%;

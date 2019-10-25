@@ -2,11 +2,11 @@
   <div class='horario'>
     <h4 class="hora">{{hora}}h</h4>
     <div class="dias">
-      <dia :aulas="this.$store.getters.getSegunda(hora)"/>
-      <dia :aulas="this.$store.getters.getTerca(hora)"/>
-      <dia :aulas="this.$store.getters.getQuarta(hora)"/>
-      <dia :aulas="this.$store.getters.getQuinta(hora)"/>
-      <dia :aulas="this.$store.getters.getSexta(hora)" style='border-right: 0px;'/>
+      <dia :aulas="this.$store.getters.getAulasDiaHora('segunda',hora)"/>
+      <dia :aulas="this.$store.getters.getAulasDiaHora('terca',hora)"/>
+      <dia :aulas="this.$store.getters.getAulasDiaHora('quarta',hora)"/>
+      <dia :aulas="this.$store.getters.getAulasDiaHora('quinta',hora)"/>
+      <dia :aulas="this.$store.getters.getAulasDiaHora('sexta',hora)" style='border-right: 0px;'/>
     </div>
   </div>
 </template>
@@ -23,29 +23,22 @@ export default {
     data() {
       return {
         curso: "Computação",
-        host: 'https://horarios-cc-api.herokuapp.com/horarios/',
-        dias: {
-          segunda: [],
-          terca: [],
-          quarta: [],
-          quinta: [],
-          sexta: []
-        }
+        host: 'https://horarios-cc-api.herokuapp.com'
     }
   },
   methods: {
-    teste(res) {
-      res.forEach(item => {
+    constroiStore(data) {
+      data.forEach(item => {
         item.ativado = false
       })
-      this.$store.commit('setAulas', res)
+      this.$store.commit('setAulas', data)
     }
   },
   mounted() {
     axios
-      .get(this.host)
+      .get(`${this.host}/horarios/`)
       .then(response => (
-        this.teste(response.data)
+        this.constroiStore(response.data)
       ))
   }
 }

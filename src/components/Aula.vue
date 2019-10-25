@@ -24,7 +24,6 @@ export default {
     },
     data (){
         return {
-            isActive: false,
             showDetails: false
         }
     }

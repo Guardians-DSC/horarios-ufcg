@@ -20,20 +20,8 @@ export default new Vuex.Store({
         }
     },
     getters: {
-        getSegunda: (state) => (hora) => {
-            return state.all.filter(aula => aula.horario.dia == "segunda" && aula.horario.hora == hora)
-        },
-        getTerca: (state) => (hora) => {
-            return state.all.filter(aula => aula.horario.dia == "terca" && aula.horario.hora == hora)
-        },
-        getQuarta: (state) => (hora) => {
-            return state.all.filter(aula => aula.horario.dia == "quarta" && aula.horario.hora == hora)
-        },
-        getQuinta: (state) => (hora) => {
-            return state.all.filter(aula => aula.horario.dia == "quinta" && aula.horario.hora == hora)
-        },
-        getSexta: (state) => (hora) => {
-            return state.all.filter(aula => aula.horario.dia == "sexta" && aula.horario.hora == hora)
+        getAulasDiaHora: (state) => (dia,hora) => {
+            return state.all.filter(aula => aula.horario.dia == dia && aula.horario.hora == hora)
         }
     }
 })

@@ -74,17 +74,17 @@
     text-align: left;
   }
 
-  hr{
+  hr {
     width: 90%;
     border-color: rgba(185, 185, 185, 0.349);
   }
 
-  .modal-backdrop h4, p{
+  .modal-backdrop h4, p {
     font-weight: lighter;
     margin: 0;
   }
 
-  .cross-icon{
+  .cross-icon {
     color: rgba(151, 148, 148, 0.74);
     position: absolute;
     cursor: pointer;

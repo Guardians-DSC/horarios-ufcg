@@ -63,7 +63,7 @@ export default {
             if(this.isActive) {
                 return this.addDisciplineIfNotExists();
             }
-            return this.removeDicipline();
+            return this.removeDiscipline();
         },
         addDisciplineIfNotExists() {
             if (this.haveDisciplineInStore()) {
@@ -81,7 +81,7 @@ export default {
             }
             return JSON.parse(window.localStorage.getItem('disciplinesIdentifier')) || [];
         },
-        removeDicipline() {
+        removeDiscipline() {
             return this.getStoreDisciplineIdentifier()
                 .filter((discipline) => discipline !== this.identifier);
         },

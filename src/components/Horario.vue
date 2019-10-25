@@ -70,7 +70,7 @@ export default {
   }
 
   @media screen and (max-width: 500px) {
-      .aulas{
+      .aulas {
         width: calc(100vw - 30px);
       }
   }

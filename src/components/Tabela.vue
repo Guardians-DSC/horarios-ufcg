@@ -26,19 +26,19 @@ export default {
 
 <style>
 
-.table{
+.table {
     display: inline-block;
     margin-top: 80px;
     min-width: 900px;
 }
 
 @media screen and (min-width: 900px) {
-      .table{
+      .table {
         width: 100%;
       }
   }
 
-.horario{
+.horario {
     width: 100%;
 }
 
@@ -58,7 +58,7 @@ div.horario:nth-child(odd) {
     color: #626161;
 }
 
-.header-dias span{
+.header-dias span {
     padding: 10px;
     border-right: 2px solid #D9D9D9;
 }

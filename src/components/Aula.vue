@@ -2,7 +2,7 @@
     <div class="aula">
         <div
             class="box"
-            :ref="'.' + identifier"
+            :ref="`.${identifier}`.replace('/', '_')"
             v-bind:class="[aula.disciplina, aula.turma, { 'ativado': isActive }]" 
             @click="toggleState()"
             @click.right="showDetails = true"

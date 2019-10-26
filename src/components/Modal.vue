@@ -55,6 +55,7 @@
     border-radius: 5px;
     padding-bottom: 20px;
     font-family: 'Roboto-mono';
+    animation: modal-reveal 0.35s ease-out;
   }
   .modal-header {
     position: relative;
@@ -96,6 +97,17 @@
     @font-face {
       font-family: Roboto-mono;
       src: url('../assets/RobotoMono-Regular.ttf');
+    }
+
+    @keyframes modal-reveal {
+      from { 
+        transform: translate3d(0, -40px, 0);
+        opacity: 0;
+       }
+       to {
+         transform: translate3d(0,0,0);
+         opacity: 1;
+       }
     }
 
 </style>

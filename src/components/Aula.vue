@@ -2,7 +2,7 @@
   <div class="aula">
     <div
       class="box"
-      :ref="`.${identifier}`.replace('/', '_')"
+      :ref="'.' + identifier"
       v-bind:class="[aula.disciplina, aula.turma, { 'box-hover': isMouseOver }, { 'ativado': isActive } ]"
       @mouseenter="onMouseOver('enter')"
       @mouseleave="onMouseOver('leave')"
@@ -68,7 +68,7 @@ export default {
   },
   computed: {
     identifier() {
-      return `${this.aula.disciplina}.${this.aula.turma}`;
+      return `${this.aula.disciplina}.${this.aula.turma}`.replace('/', '_');
     }
   },
   methods: {

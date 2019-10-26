@@ -3,7 +3,7 @@
     <div
       class="box"
       :ref="'.' + identifier"
-      v-bind:class="[aula.disciplina, aula.turma, { 'box-hover': isMouseOver }, { 'ativado': isActive } ]"
+      v-bind:class="[this.parseDiscipline(aula.disciplina), aula.turma, { 'box-hover': isMouseOver }, { 'ativado': isActive } ]"
       @mouseenter="onMouseOver('enter')"
       @mouseleave="onMouseOver('leave')"
       @click="toggleState()"
@@ -28,7 +28,7 @@ export default {
   updated: function() {
     this.$nextTick(function() {
       let bothElements = document.querySelectorAll(
-        `.${this.aula.disciplina}.${this.aula.turma}`
+        `.${this.parseDiscipline(this.aula.disciplina)}.${this.aula.turma}`
       );
 
       for (let elm of bothElements) {
@@ -91,7 +91,10 @@ export default {
       if (this.isActive) {
         return this.addDisciplineIfNotExists();
       }
-      return this.removeDicipline();
+      return this.removeDiscipline();
+    },
+    parseDiscipline(discipline) {
+      return discipline.replace('/', '_');
     },
     addDisciplineIfNotExists() {
       if (this.haveDisciplineInStore()) {
@@ -112,7 +115,7 @@ export default {
         JSON.parse(window.localStorage.getItem("disciplinesIdentifier")) || []
       );
     },
-    removeDicipline() {
+    removeDiscipline() {
       return this.getStoreDisciplineIdentifier().filter(
         discipline => discipline !== this.identifier
       );

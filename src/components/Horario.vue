@@ -67,17 +67,17 @@ export default {
 </script>
 
 <style>
-.fadeHeight-enter-active,
-.fadeHeight-leave-active {
-  transition: all .3s;
-  max-height: 230px;
-}
-.fadeHeight-enter,
-.fadeHeight-leave-to
-{
-  opacity: 0;
-  max-height: 0px;
-}
+  .fadeHeight-enter-active,
+  .fadeHeight-leave-active {
+    transition: all .3s;
+    max-height: 230px;
+  }
+  
+  .fadeHeight-enter,
+  .fadeHeight-leave-to {
+    opacity: 0;
+    max-height: 0px;
+  }
 
   div.dias {
     display: grid;

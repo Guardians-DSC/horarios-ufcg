@@ -27,35 +27,33 @@ export default {
   },
   updated: function() {
     this.$nextTick(function() {
-      let bothElements = document.querySelectorAll(
-        `.${this.aula.disciplina}.${this.aula.turma}`
+      const aulas = document.getElementsByClassName(
+        `${this.aula.disciplina} ${this.aula.turma}`
       );
+      const refName = Object.keys(this.$refs)[0];
+      const isActive = this.$refs[refName].classList.contains("ativado");
 
-      for (let elm of bothElements) {
-        if (this.isMouseOver && !elm.classList.contains("box-hover"))
-          elm.classList.add("box-hover");
-        if (!this.isMouseOver) elm.classList.remove("box-hover");
+      for (let aula of aulas) {
+        if (this.isMouseOver && !aula.classList.contains("box-hover"))
+          aula.classList.add("box-hover");
+        if (!this.isMouseOver) aula.classList.remove("box-hover");
       }
 
-      for (var classe in this.$refs) {
-        if (this.$refs[classe].className.includes("box-hover")) return;
-        const ativado = this.$refs[classe].className.includes("ativado");
-        const nodeList = document.querySelectorAll(classe);
+      if (this.$refs[refName].classList.contains("box-hover")) return;
 
-        // if can't find nodes
-        if (!nodeList[0] || !nodeList[1]) return;
+      // If it can find only one or no nodes
+      if (!aulas[0] || !aulas[1]) return;
 
-        // if one node is active and other is not
-        if (nodeList[0].className != nodeList[1].className) {
-          if (ativado)
-            nodeList[0].className.includes("ativado")
-              ? nodeList[1].click()
-              : nodeList[0].click();
-          else if (!ativado)
-            nodeList[0].className.includes("ativado")
-              ? nodeList[0].click()
-              : nodeList[1].click();
-        }
+      // If one node is active and other is not
+      if (aulas[0].className != aulas[1].className) {
+        if (isActive)
+          aulas[0].classList.contains("ativado")
+            ? aulas[1].click()
+            : aulas[0].click();
+        else if (!isActive)
+          aulas[0].classList.contains("ativado")
+            ? aulas[0].click()
+            : aulas[1].click();
       }
     });
   },

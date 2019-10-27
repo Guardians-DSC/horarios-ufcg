@@ -26,6 +26,11 @@ export default {
   align-items: center;
   justify-content: center;
 }
+.aulas {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
 </style>
 
   

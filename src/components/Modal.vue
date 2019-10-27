@@ -1,6 +1,6 @@
 <template>
   <div class="modal-backdrop" @click.self="close">
-    <div class="modal">
+    <div class="modal" ref="modal" @keyup.esc="close" tabindex="0">
       <header class="modal-header">
           <h4>DETALHES</h4>
           <span class="cross-icon" @click="close">&#10005;</span>
@@ -8,6 +8,7 @@
       <hr>
       <section class="modal-body">
           <p>Disciplina: {{aula.disciplina}}</p>
+          <p>Nome: {{aula.nome}}</p>
           <p>Professor: {{aula.professor}}</p>
           <p>Tipo: {{aula.categoria}}</p>
           <p>Turma: {{aula.turma}}</p>
@@ -21,6 +22,11 @@
   export default {
     name: 'modal',
     props: ['aula'],
+    mounted: function () {
+      this.$nextTick(function () {
+        this.$refs.modal.focus();
+      })
+    },
     methods: {
       close() {
         this.$emit('close');
@@ -49,6 +55,7 @@
     border-radius: 5px;
     padding-bottom: 20px;
     font-family: 'Roboto-mono';
+    animation: modal-reveal 0.35s ease-out;
   }
   .modal-header {
     position: relative;
@@ -68,17 +75,17 @@
     text-align: left;
   }
 
-  hr{
+  hr {
     width: 90%;
     border-color: rgba(185, 185, 185, 0.349);
   }
 
-  .modal-backdrop h4, p{
+  .modal-backdrop h4, p {
     font-weight: lighter;
     margin: 0;
   }
 
-  .cross-icon{
+  .cross-icon {
     color: rgba(151, 148, 148, 0.74);
     position: absolute;
     cursor: pointer;
@@ -90,6 +97,17 @@
     @font-face {
       font-family: Roboto-mono;
       src: url('../assets/RobotoMono-Regular.ttf');
+    }
+
+    @keyframes modal-reveal {
+      from { 
+        transform: translate3d(0, -40px, 0);
+        opacity: 0;
+       }
+       to {
+         transform: translate3d(0,0,0);
+         opacity: 1;
+       }
     }
 
 </style>

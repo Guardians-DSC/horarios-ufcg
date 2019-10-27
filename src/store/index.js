@@ -17,6 +17,14 @@ export default new Vuex.Store({
                     item.ativado = !item.ativado
                 } 
             })
+        },
+        setAulaHover (state, aula) {            
+            state.all.forEach(item => {
+                if(item.disciplina == aula.disciplina && item.turma == aula.turma){
+                    item.ativaHover = !item.ativaHover
+                    
+                } 
+            })
         }
     },
     getters: {

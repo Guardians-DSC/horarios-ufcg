@@ -27,18 +27,32 @@ export default {
     }
   },
   methods: {
-    constroiStore(data) {
+    initStore(data) {
       data.forEach(item => {
-        item.ativado = false
+        this.haveDisciplineInStore(item) ? item.ativado = true  : item.ativado = false;
+        item.ativaHover = false;
       })
       this.$store.commit('setAulas', data)
-    }
+    },
+    haveDisciplineInStore(aula) {
+      return this.getStoreDisciplineIdentifier().some(
+        discipline => discipline === `${aula.disciplina}.${aula.turma}`
+      );
+    },
+    getStoreDisciplineIdentifier() {
+      if (!window.localStorage) {
+        return [];
+      }
+      return (
+        JSON.parse(window.localStorage.getItem("disciplinesIdentifier")) || []
+      );
+    },
   },
   mounted() {
     axios
       .get(`${this.host}/horarios/`)
       .then(response => (
-        this.constroiStore(response.data)
+        this.initStore(response.data)
       ))
   }
 }
@@ -51,7 +65,7 @@ export default {
   }
 
   @media screen and (max-width: 500px) {
-      .aulas{
+      .aulas {
         width: calc(100vw - 30px);
       }
   }

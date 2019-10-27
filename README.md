@@ -21,8 +21,8 @@ O Horarios UFCG é feito em [Vue](https://vuejs.org/) e para executá-lo localme
 ### Clonar o projeto:
 
 ```
-git clone https://github.com/Guardians-DSC/horarios-cc.git
-cd horario-cc
+git clone https://github.com/Guardians-DSC/horarios-ufcg.git
+cd horarios-ufcg
 ```
 
 ### Instalar dependências 
@@ -38,3 +38,9 @@ npm run serve
 ```
 
 Após esses passos o projeto estará rodando localmente em localhost:8080.
+
+
+- 
+#### Design Mobile
+[Wireframe](https://www.figma.com/file/IlItYRF4vByDOvhD1ZaqCn/Hor%C3%A1rios-UFCG)
+[Demo](https://www.figma.com/proto/IlItYRF4vByDOvhD1ZaqCn/Horários-UFCG?node-id=6%3A662&scaling=scale-down)

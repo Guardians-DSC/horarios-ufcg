@@ -2,7 +2,7 @@
   <div class='horario'>
     <div @click="collapse = !collapse">
       <h4 class="hora">{{hora}}h</h4>
-      <span><i :class="`fas fa-chevron-${ collapse ? 'up' : 'down' }`"></i></span>
+      <span><i :class="`fas fa-chevron-${ collapse ? 'down' : 'up' }`"></i></span>
     </div>
     <transition name="fadeHeight" mode="out-in">
       <div class="dias" v-if="!collapse">

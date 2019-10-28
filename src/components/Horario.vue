@@ -17,56 +17,40 @@
 </template>
 
 <script>
-import Dia from './Dia.vue';
-import axios from 'axios'
+import Dia from "./Dia.vue";
+import api from "@/services/api";
 export default {
-  name: 'horario',
-  props: ['hora'],
+  name: "horario",
+  props: ["hora"],
   components: {
     Dia
   },
-    data() {
-      return {
-        curso: "Computação",
-        host: 'https://horarios-cc-api.herokuapp.com',
-        dias: {
-          segunda: [],
-          terca: [],
-          quarta: [],
-          quinta: [],
-          sexta: []
-        },
-        collapse: false,
-    }
+  data() {
+    return {
+      curso: "Computação",
+      dias: {
+        segunda: [],
+        terca: [],
+        quarta: [],
+        quinta: [],
+        sexta: []
+      },
+      collapse: false,
+    };
   },
   mounted() {
-    axios
-      .get(`${this.host}/horarios/segunda/${this.hora}`)
-      .then(response => (
-        this.dias.segunda = response.data
-      ))
-    axios
-      .get(`${this.host}/horarios/terca/${this.hora}`)
-      .then(response => (
-        this.dias.terca = response.data
-      ))
-    axios
-      .get(`${this.host}/horarios/quarta/${this.hora}`)
-      .then(response => (
-        this.dias.quarta = response.data
-      ))
-    axios
-      .get(`${this.host}/horarios/quinta/${this.hora}`)
-      .then(response => (
-        this.dias.quinta = response.data
-      ))
-    axios
-      .get(`${this.host}/horarios/sexta/${this.hora}`)
-      .then(response => (
-        this.dias.sexta = response.data
-      ))
+    for (let dia of ["segunda", "terca", "quarta", "quinta", "sexta"]) {
+      api
+        .get("/horarios", {
+          params: {
+            dia,
+            hora: this.hora
+          }
+        })
+        .then(response => (this.dias[dia] = response.data));
+    }
   }
-}
+};
 </script>
 
 <style>
@@ -81,21 +65,20 @@ export default {
     opacity: 0;
     max-height: 0px;
   }
-
+  
   div.dias {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    min-height: 20px
   }
 
   @media screen and (max-width: 500px) {
-      .aulas {
-        width: calc(100vw - 30px);
-      }
+    .aulas {
+      width: calc(100vw - 30px);
+    }
   }
 
   div.dias > * {
-    border-right: 2px solid #D9D9D9;
+    border-right: 2px solid #d9d9d9;
     padding: 10px;
   }
 
@@ -103,10 +86,10 @@ export default {
     display: grid;
     grid-template-columns: 60px 1fr;
     grid-gap: 5px;
-    border-top: 1px solid #E3EAF0;
+    border-top: 1px solid #e3eaf0;
   }
-  
-  .horario>h4 {
+
+  .horario > h4 {
     display: flex;
     height: 100%;
     margin: 0;
@@ -114,7 +97,7 @@ export default {
     align-items: center;
     justify-content: center;
   }
-  
+
   .horario>div{
     display: flex;
     justify-content: space-around;

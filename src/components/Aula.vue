@@ -3,7 +3,7 @@
     <div
       class="box"
       :ref="'.' + identifier"
-      v-bind:class="[this.changeInvalidCharacters(aula.disciplina), aula.turma, { 'box-hover': isMouseOver }, { 'ativado': isActive } ]"
+      v-bind:class="[aula.disciplina, aula.turma, { 'box-hover': isMouseOver }, { 'ativado': isActive } ]"
       @mouseenter="onMouseOver('enter')"
       @mouseleave="onMouseOver('leave')"
       @click="toggleState()"
@@ -66,9 +66,7 @@ export default {
   },
   computed: {
     identifier() {
-      return this.changeInvalidCharacters(
-        `${this.aula.disciplina}.${this.aula.turma}`
-      );
+      return `${this.aula.disciplina}.${this.aula.turma}`;
     }
   },
   methods: {
@@ -91,7 +89,7 @@ export default {
       if (this.isActive) {
         return this.addDisciplineIfNotExists();
       }
-      return this.removeDiscipline();
+      return this.removeDicipline();
     },
     addDisciplineIfNotExists() {
       if (this.haveDisciplineInStore()) {
@@ -112,7 +110,7 @@ export default {
         JSON.parse(window.localStorage.getItem("disciplinesIdentifier")) || []
       );
     },
-    removeDiscipline() {
+    removeDicipline() {
       return this.getStoreDisciplineIdentifier().filter(
         discipline => discipline !== this.identifier
       );
@@ -123,9 +121,6 @@ export default {
         "disciplinesIdentifier",
         JSON.stringify(disciplinesIdentifier)
       );
-    },
-    changeInvalidCharacters(string) {
-      return string.replace("/", "_");
     }
   }
 };

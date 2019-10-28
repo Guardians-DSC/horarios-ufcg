@@ -34,7 +34,8 @@ export default {
   },
   mounted() {
     for (let dia of ["segunda", "terca", "quarta", "quinta", "sexta"]) {
-      api.get("/horarios", {
+      api
+        .get("/horarios", {
           params: {
             dia,
             hora: this.hora

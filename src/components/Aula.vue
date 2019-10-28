@@ -15,6 +15,7 @@
 
 <script>
 import Modal from "./Modal.vue";
+import localstorage from "@/services/localstorage";
 export default {
   name: "aula",
   props: ["aula"],
@@ -36,50 +37,9 @@ export default {
       this.$store.commit('setAulaHover', this.aula);
     },
     toggleState() {
-      this.$store.commit('setAula', this.aula)
-      this.updateStorage();
+      this.$store.commit('setAula', this.aula);
+      localstorage.updateStorage(this.aula);
     },
-    updateStorage() {
-      const disciplinesIdentifier = this.getUpdatedDisciplinesIdentifier();
-      this.addDisciplineIdentifierToStorage(disciplinesIdentifier);
-    },
-    getUpdatedDisciplinesIdentifier() {
-      if (this.aula.ativado) {
-        return this.addDisciplineIfNotExists();
-      }
-      return this.removeDicipline();
-    },
-    addDisciplineIfNotExists() {
-      if (this.haveDisciplineInStore()) {
-        return this.getStoreDisciplineIdentifier();
-      }
-      return this.getStoreDisciplineIdentifier().concat(this.identifier);
-    },
-    haveDisciplineInStore() {
-      return this.getStoreDisciplineIdentifier().some(
-        discipline => discipline === this.identifier
-      );
-    },
-    getStoreDisciplineIdentifier() {
-      if (!window.localStorage) {
-        return [];
-      }
-      return (
-        JSON.parse(window.localStorage.getItem("disciplinesIdentifier")) || []
-      );
-    },
-    removeDicipline() {
-      return this.getStoreDisciplineIdentifier().filter(
-        discipline => discipline !== this.identifier
-      );
-    },
-    addDisciplineIdentifierToStorage(disciplinesIdentifier = []) {
-      if (!window.localStorage) return;
-      window.localStorage.setItem(
-        "disciplinesIdentifier",
-        JSON.stringify(disciplinesIdentifier)
-      );
-    }
   }
 };
 </script>

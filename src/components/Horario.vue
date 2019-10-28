@@ -1,6 +1,9 @@
 <template>
   <div class='horario'>
-    <h4 class="hora" @click="collapse = !collapse">{{hora}}h</h4>
+    <div @click="collapse = !collapse">
+      <h4 class="hora">{{hora}}h</h4>
+      <span><i :class="`fas fa-chevron-${ collapse ? 'up' : 'down' }`"></i></span>
+    </div>
     <transition name="fadeHeight" mode="out-in">
       <div class="dias" v-if="!collapse">
           <dia :aulas="this.dias.segunda"/>
@@ -110,6 +113,12 @@ export default {
     color: #521782;
     align-items: center;
     justify-content: center;
+  }
+  
+  .horario>div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     cursor: pointer;
   }
 </style>

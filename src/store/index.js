@@ -11,16 +11,16 @@ export default new Vuex.Store({
         setAulas (state, aulas) {
             state.all = aulas
         },
-        setAula (state, aula) {
+        setAulaAtivado (state, aula) {
             state.all.forEach(item => {
-                if(item.disciplina == aula.disciplina && item.turma == aula.turma){
+                if(item.identifier == aula){
                     item.ativado = !item.ativado
                 } 
             })
         },
         setAulaHover (state, aula) {            
             state.all.forEach(item => {
-                if(item.disciplina == aula.disciplina && item.turma == aula.turma){
+                if(item.identifier == aula){
                     item.ativaHover = !item.ativaHover
                     
                 } 

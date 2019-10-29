@@ -5,9 +5,7 @@
       @mouseenter="onMouseOver()" @mouseleave="onMouseOver()"
       @click="toggleState()" @click.right="showDetails = true"
       @contextmenu.capture.prevent>
-    
       {{aula.disciplina}}-{{aula.turma}}
-    
     </div>
     <Modal v-if="showDetails == true" @close="showDetails = false" :aula="aula" />
   </div>
@@ -27,17 +25,12 @@ export default {
       showDetails: false
     };
   },
-  computed: {
-    identifier() {
-      return `${this.aula.disciplina}.${this.aula.turma}`;
-    }
-  },
   methods: {
     onMouseOver() {
-      this.$store.commit('setAulaHover', this.aula);
+      this.$store.commit('setAulaHover', this.aula.identifier);
     },
     toggleState() {
-      this.$store.commit('setAula', this.aula);
+      this.$store.commit('setAulaAtivado', this.aula.identifier);
       localstorage.updateStorage(this.aula);
     },
   }

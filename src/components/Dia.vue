@@ -21,6 +21,7 @@ export default {
 
 <style scoped>
 .loading {
+  width: 100%;
   display: flex;
   text-align: center;
   align-items: center;

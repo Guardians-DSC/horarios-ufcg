@@ -98,7 +98,7 @@ export default {
     justify-content: center;
   }
 
-  .horario>div{
+  .horario > div {
     display: flex;
     justify-content: space-around;
     align-items: center;

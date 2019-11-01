@@ -31,6 +31,7 @@ export default {
         background-color: #521782;
         color: #E8E8E8; 
         font-family: 'Montserrat', sans-serif;
+        z-index: 1;
     }
     
     div.navbar > h1 {

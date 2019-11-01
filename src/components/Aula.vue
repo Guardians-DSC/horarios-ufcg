@@ -143,8 +143,7 @@ export default {
   text-align: center;
 }
 
-.box:hover,
-.box-hover {
+.box:hover, .box-hover {
   background-color: #8948bf;
   border: 2px solid #671fa3;
   color: #ffffff;
@@ -166,6 +165,16 @@ export default {
 .ativado:hover {
   background-color: #48067e;
   border: 2px solid #421268;
+}
+
+.emComflito {
+  background-color: rgb(228, 104, 104);
+  border: 2px solid rgb(221, 82, 82);
+}
+
+.emComflito:hover {
+  background-color: rgb(235, 149, 149);
+  border: 2px solid rgb(221, 82, 82);
 }
 
 @media screen and (min-width: 1920px) {

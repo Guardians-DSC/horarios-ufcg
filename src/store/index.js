@@ -18,11 +18,11 @@ export default new Vuex.Store({
                 } 
             })
         },
-        setAulaHover (state, aula) {            
+        setAulaHover (state, objHover) {            
             state.all.forEach(item => {
-                if(item.identifier == aula){
-                    item.ativaHover = !item.ativaHover
-                    
+                if(item.identifier == objHover.aula){
+                    if(objHover.cond == 'enter') item.ativaHover = true
+                    else item.ativaHover = false
                 } 
             })
         }

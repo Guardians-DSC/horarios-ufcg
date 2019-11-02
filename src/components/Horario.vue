@@ -1,13 +1,18 @@
 <template>
-  <div class="horario">
-    <h4 class="hora">{{hora}}h</h4>
-    <div class="dias">
-      <dia :aulas="this.$store.getters.getAulasDiaHora('segunda',hora)"/>
-      <dia :aulas="this.$store.getters.getAulasDiaHora('terca',hora)"/>
-      <dia :aulas="this.$store.getters.getAulasDiaHora('quarta',hora)"/>
-      <dia :aulas="this.$store.getters.getAulasDiaHora('quinta',hora)"/>
-      <dia :aulas="this.$store.getters.getAulasDiaHora('sexta',hora)" style="border-right: 0px;"/>
+  <div class='horario'>
+    <div @click="collapse = !collapse">
+      <h4 class="hora">{{hora}}h</h4>
+      <span><i :class="`fas fa-chevron-${ collapse ? 'down' : 'up' }`"></i></span>
     </div>
+    <transition name="fadeHeight" mode="out-in">
+      <div class="dias" v-if="!collapse">
+        <dia :aulas="this.$store.getters.getAulasDiaHora('segunda',hora)"/>
+        <dia :aulas="this.$store.getters.getAulasDiaHora('terca',hora)"/>
+        <dia :aulas="this.$store.getters.getAulasDiaHora('quarta',hora)"/>
+        <dia :aulas="this.$store.getters.getAulasDiaHora('quinta',hora)"/>
+        <dia :aulas="this.$store.getters.getAulasDiaHora('sexta',hora)" style="border-right: 0px;"/>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -23,8 +28,9 @@ export default {
   },
   data() {
     return {
-      curso: "Computação"
-    }
+      curso: "Computação",
+      collapse: false,
+    };
   },
   methods: {
     initStore(data) {
@@ -44,35 +50,46 @@ export default {
 </script>
 
 <style>
-div.dias {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-}
-
-@media screen and (max-width: 500px) {
-  .aulas {
-    width: calc(100vw - 30px);
+  .fadeHeight-enter-active,
+  .fadeHeight-leave-active {
+    transition: all .3s;
+    max-height: 230px;
   }
-}
+  
+  .fadeHeight-enter,
+  .fadeHeight-leave-to {
+    opacity: 0;
+    max-height: 0px;
+  }
+  
+  div.dias {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
 
-div.dias > * {
-  border-right: 2px solid #d9d9d9;
-  padding: 10px;
-}
+  @media screen and (max-width: 500px) {
+    .aulas {
+      width: calc(100vw - 30px);
+    }
+  }
 
-div.horario {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  grid-gap: 5px;
-  border-top: 1px solid #e3eaf0;
-}
+  div.dias > * {
+    border-right: 2px solid #d9d9d9;
+    padding: 10px;
+  }
 
-.horario > h4 {
-  display: flex;
-  height: 100%;
-  margin: 0;
-  color: #521782;
-  align-items: center;
-  justify-content: center;
-}
+  div.horario {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    grid-gap: 5px;
+    border-top: 1px solid #e3eaf0;
+  }
+
+  .horario > div:first-child{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    color: #521782;
+  }
 </style>

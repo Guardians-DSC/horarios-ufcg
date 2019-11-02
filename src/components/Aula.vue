@@ -2,7 +2,7 @@
   <div class="aula">
     <div
       class="box" v-bind:class="[ { 'box-hover': aula.ativaHover }, { 'ativado': aula.ativado } ]"
-      @mouseenter="onMouseOver()" @mouseleave="onMouseOver()"
+      @mouseenter="onMouseOver('enter')" @mouseleave="onMouseOver('leave')"
       @click="toggleState()" @click.right="showDetails = true"
       @contextmenu.capture.prevent>
       {{aula.disciplina}}-{{aula.turma}}
@@ -26,8 +26,8 @@ export default {
     };
   },
   methods: {
-    onMouseOver() {
-      this.$store.commit('setAulaHover', this.aula.identifier);
+    onMouseOver(condition) {
+      this.$store.commit('setAulaHover', {aula: this.aula.identifier, cond: condition});
     },
     toggleState() {
       this.$store.commit('setAulaAtivado', this.aula.identifier);
@@ -54,8 +54,7 @@ export default {
   text-align: center;
 }
 
-.box:hover,
-.box-hover {
+.box:hover, .box-hover {
   background-color: #8948bf;
   border: 2px solid #671fa3;
   color: #ffffff;
@@ -77,6 +76,16 @@ export default {
 .ativado:hover {
   background-color: #48067e;
   border: 2px solid #421268;
+}
+
+.emComflito {
+  background-color: rgb(228, 104, 104);
+  border: 2px solid rgb(221, 82, 82);
+}
+
+.emComflito:hover {
+  background-color: rgb(235, 149, 149);
+  border: 2px solid rgb(221, 82, 82);
 }
 
 @media screen and (min-width: 1920px) {

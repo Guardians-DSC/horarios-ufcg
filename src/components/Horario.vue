@@ -89,19 +89,11 @@ export default {
     border-top: 1px solid #e3eaf0;
   }
 
-  .horario > h4 {
-    display: flex;
-    height: 100%;
-    margin: 0;
-    color: #521782;
-    align-items: center;
-    justify-content: center;
-  }
-
   .horario > div:first-child{
     display: flex;
     justify-content: space-around;
     align-items: center;
     cursor: pointer;
+    color: #521782;
   }
 </style>

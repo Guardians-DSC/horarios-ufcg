@@ -1,6 +1,9 @@
 <template>
-  <div class="horario">
-    <h4 class="hora" @click="collapse = !collapse">{{hora}}h</h4>
+  <div class='horario'>
+    <div @click="collapse = !collapse">
+      <h4 class="hora">{{hora}}h</h4>
+      <span><i :class="`fas fa-chevron-${ collapse ? 'down' : 'up' }`"></i></span>
+    </div>
     <transition name="fadeHeight" mode="out-in">
       <div class="dias" v-if="!collapse">
         <dia :aulas="this.dias.segunda" />
@@ -31,7 +34,8 @@ export default {
         quarta: [],
         quinta: [],
         sexta: []
-      }
+      },
+      collapse: false,
     };
   },
   mounted() {
@@ -50,10 +54,6 @@ export default {
 </script>
 
 <style>
-div.dias {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-}
   .fadeHeight-enter-active,
   .fadeHeight-leave-active {
     transition: all .3s;
@@ -65,37 +65,43 @@ div.dias {
     opacity: 0;
     max-height: 0px;
   }
-
+  
   div.dias {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    min-height: 20px
   }
 
-@media screen and (max-width: 500px) {
-  .aulas {
-    width: calc(100vw - 30px);
+  @media screen and (max-width: 500px) {
+    .aulas {
+      width: calc(100vw - 30px);
+    }
   }
-}
 
-div.dias > * {
-  border-right: 2px solid #d9d9d9;
-  padding: 10px;
-}
+  div.dias > * {
+    border-right: 2px solid #d9d9d9;
+    padding: 10px;
+  }
 
-div.horario {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  grid-gap: 5px;
-  border-top: 1px solid #e3eaf0;
-}
+  div.horario {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    grid-gap: 5px;
+    border-top: 1px solid #e3eaf0;
+  }
 
-.horario > h4 {
-  display: flex;
-  height: 100%;
-  margin: 0;
-  color: #521782;
-  align-items: center;
-  justify-content: center;
-}
+  .horario > h4 {
+    display: flex;
+    height: 100%;
+    margin: 0;
+    color: #521782;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .horario > div:first-child{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+  }
 </style>

@@ -1,13 +1,15 @@
 <template>
   <div class="horario">
-    <h4 class="hora">{{hora}}h</h4>
-    <div class="dias">
-      <dia :aulas="this.dias.segunda" />
-      <dia :aulas="this.dias.terca" />
-      <dia :aulas="this.dias.quarta" />
-      <dia :aulas="this.dias.quinta" />
-      <dia :aulas="this.dias.sexta" style="border-right: 0px;" />
-    </div>
+    <h4 class="hora" @click="collapse = !collapse">{{hora}}h</h4>
+    <transition name="fadeHeight" mode="out-in">
+      <div class="dias" v-if="!collapse">
+        <dia :aulas="this.dias.segunda" />
+        <dia :aulas="this.dias.terca" />
+        <dia :aulas="this.dias.quarta" />
+        <dia :aulas="this.dias.quinta" />
+        <dia :aulas="this.dias.sexta" style="border-right: 0px;" />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -52,6 +54,23 @@ div.dias {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
+  .fadeHeight-enter-active,
+  .fadeHeight-leave-active {
+    transition: all .3s;
+    max-height: 230px;
+  }
+  
+  .fadeHeight-enter,
+  .fadeHeight-leave-to {
+    opacity: 0;
+    max-height: 0px;
+  }
+
+  div.dias {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    min-height: 20px
+  }
 
 @media screen and (max-width: 500px) {
   .aulas {

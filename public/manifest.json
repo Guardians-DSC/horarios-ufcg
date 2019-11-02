@@ -1,0 +1,17 @@
+{
+  "name": "Horários UFCG",
+  "short_name": "HoráriosUFCG",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#521782",
+  "background_color": "#FFF",
+  "description": "Visualização dos horários das disciplinas do curso de Ciência da Computação da UFCG.",
+  "icons": [
+      {
+          "src": "/icons/guardians_icon.png",
+          "type": "image/png",
+          "sizes": "192x192 512x512"
+      }
+  ]
+}

@@ -6,11 +6,11 @@
     </div>
     <transition name="fadeHeight" mode="out-in">
       <div class="dias" v-if="!collapse">
-        <dia :aulas="this.dias.segunda" />
-        <dia :aulas="this.dias.terca" />
-        <dia :aulas="this.dias.quarta" />
-        <dia :aulas="this.dias.quinta" />
-        <dia :aulas="this.dias.sexta" style="border-right: 0px;" />
+        <dia :aulas="this.$store.getters.getAulasDiaHora('segunda',hora)"/>
+        <dia :aulas="this.$store.getters.getAulasDiaHora('terca',hora)"/>
+        <dia :aulas="this.$store.getters.getAulasDiaHora('quarta',hora)"/>
+        <dia :aulas="this.$store.getters.getAulasDiaHora('quinta',hora)"/>
+        <dia :aulas="this.$store.getters.getAulasDiaHora('sexta',hora)" style="border-right: 0px;"/>
       </div>
     </transition>
   </div>
@@ -19,6 +19,7 @@
 <script>
 import Dia from "./Dia.vue";
 import api from "@/services/api";
+import localstorage from "@/services/localstorage";
 export default {
   name: "horario",
   props: ["hora"],
@@ -28,27 +29,22 @@ export default {
   data() {
     return {
       curso: "Computação",
-      dias: {
-        segunda: [],
-        terca: [],
-        quarta: [],
-        quinta: [],
-        sexta: []
-      },
       collapse: false,
     };
   },
-  mounted() {
-    for (let dia of ["segunda", "terca", "quarta", "quinta", "sexta"]) {
-      api
-        .get("/horarios", {
-          params: {
-            dia,
-            hora: this.hora
-          }
-        })
-        .then(response => (this.dias[dia] = response.data));
+  methods: {
+    initStore(data) {
+      data.forEach(item => {
+        item.identifier = `${item.disciplina}.${item.turma}`;
+        localstorage.haveDisciplineInLocalStorage(item) ? item.ativado = true  : item.ativado = false;
+        item.ativaHover = false;
+      })
+      this.$store.commit("setAulas", data)
     }
+  },
+  mounted() {
+    api.get("/horarios")
+       .then(response => this.initStore(response.data))
   }
 };
 </script>

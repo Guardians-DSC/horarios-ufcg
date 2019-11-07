@@ -1,14 +1,11 @@
 <template>
     <div class="filtro">
         <img class="filter-icon" src="./../assets/filter.png" alt="filter-icon">
-        <div>
-          <div class="option" v-for="(option, id) in optPeriodo" v-bind:key="id"
-             v-bind:class="[ { 'opt-ativado': option.ativado } ]"
-             @click="option.ativado = !option.ativado; clickOption(option)">
-            {{option.label}}
-          </div>
+        <div class="option" v-for="(option, id) in optPeriodo" v-bind:key="id"
+           v-bind:class="[ { 'opt-ativado': option.ativado } ]"
+           @click="option.ativado = !option.ativado; clickOption(option)">
+          {{option.label}}
         </div>
-        
         <div class="option" v-for="(option, id) in optCategoria" v-bind:key="id"
              v-bind:class="[ { 'opt-ativado': option.ativado } ]"
              @click="option.ativado = !option.ativado; clickOption(option)">

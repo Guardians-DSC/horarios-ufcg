@@ -28,7 +28,6 @@ export default {
 
 .table {
     display: inline-block;
-    margin-top: 80px;
     min-width: 900px;
 }
 

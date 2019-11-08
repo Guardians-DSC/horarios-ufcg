@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Navbar/>
+    <Filtro/>
     <dir class="container-table">
       <Tabela/>
     </dir>
@@ -10,11 +11,13 @@
 <script>
 import Tabela from './components/Tabela.vue'
 import Navbar from './components/Navbar.vue'
+import Filtro from './components/Filtro.vue'
 export default {
   name: 'app',
   components: {
     Tabela,
-    Navbar
+    Navbar,
+    Filtro
   }
 }
 </script>
@@ -29,7 +32,7 @@ html, body { margin: 0; }
 }
 
 .container-table {
-  margin: 0;
+  margin-top: 30px;
   padding: 0;
   width: 100%;
   overflow-x:auto;

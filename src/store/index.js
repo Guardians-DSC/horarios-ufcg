@@ -25,6 +25,14 @@ export default new Vuex.Store({
                     else item.ativaHover = false
                 } 
             })
+        },
+        setAulaVisivel (state, objOption) {            
+            state.all.forEach(item => {
+                if((objOption.info == "periodo" && item.periodo_ppc_novo == objOption.valor) ||
+                   (objOption.info == "categoria" && item.categoria == objOption.valor)){
+                    item.visivel = objOption.ativado
+                }
+            })
         }
     },
     getters: {

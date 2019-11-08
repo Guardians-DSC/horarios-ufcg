@@ -38,6 +38,7 @@ export default {
         item.identifier = `${item.disciplina}.${item.turma}`;
         localstorage.haveDisciplineInLocalStorage(item) ? item.ativado = true  : item.ativado = false;
         item.ativaHover = false;
+        item.visivel = true;
       })
       this.$store.commit("setAulas", data)
     }

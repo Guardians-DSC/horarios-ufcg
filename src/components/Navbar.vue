@@ -4,7 +4,7 @@
         <h1>Horários UFCG</h1>
         <form id="searchBar" v-if="search === true" v-on:submit.prevent="searchActive">
             <div id="searchBarInputContainer">
-                <i @click="search = !search" id="searchIcon" class="fas fa-search"></i>
+                <i id="searchIcon" class="fas fa-search"></i>
                 <input id="inputSearch" v-model="searchTerm" placeholder="Pesquisar por Disciplina" type="text" list="aulasList" >
             </div>
             <datalist id="aulasList">
@@ -64,7 +64,6 @@ export default {
     #searchIcon {
         color: #a080c1;
         margin-left: 20px;
-        cursor: pointer
     }
 
     #searchBarInputContainer {

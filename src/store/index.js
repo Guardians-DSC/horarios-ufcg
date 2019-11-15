@@ -48,6 +48,6 @@ export default new Vuex.Store({
             return state.all.filter(aula => aula.horario.dia == dia && aula.horario.hora == hora)
         },
 
-        getAulas: state => state.all
+        getAulas: state => state.all.filter( (aula, i, array) => array.map(x => x.disciplina).indexOf(aula.disciplina) == i)
     }
 })

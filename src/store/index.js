@@ -26,13 +26,21 @@ export default new Vuex.Store({
                 } 
             })
         },
-        setAulaVisivel (state, objOption) {            
-            state.all.forEach(item => {
-                if((objOption.info == "periodo" && item.periodo_ppc_novo == objOption.valor) ||
-                   (objOption.info == "categoria" && item.categoria == objOption.valor)){
-                    item.visivel = objOption.ativado
-                }
-            })
+        setAulaVisivel (state, options) {
+            if(options.length){
+                state.all.forEach(item => {
+                    let visivel = false
+                    options.forEach(objOption => {
+                        if((objOption.info == "periodo" && item.periodo_ppc_novo == objOption.valor) ||
+                           (objOption.info == "categoria" && item.categoria == objOption.valor)){
+                            visivel = true
+                        }
+                    })
+                    item.visivel = visivel
+                })
+            }else {
+                state.all.forEach(item => item.visivel = true)
+            }
         }
     },
     getters: {

@@ -2,7 +2,7 @@
     <div class="navbar">
         <div id="curso">{{curso}}</div>
         <h1>Horários UFCG</h1>
-        <form id="searchBar" v-if="search === true" v-on:submit.prevent="searchActive">
+        <form id="searchBar" v-on:submit.prevent="searchActive">
             <div id="searchBarInputContainer">
                 <i id="searchIcon" class="fas fa-search"></i>
                 <input id="inputSearch" v-model="searchTerm" placeholder="Pesquisar por Disciplina" type="text" list="aulasList" >
@@ -11,7 +11,6 @@
                 <option v-for="(aula, index) in getAulas" v-bind:key="index" :value="`${aula.disciplina}-${aula.turma}`"></option>
             </datalist>
         </form>
-        <button v-if="search !== true" @click="search = !search" id="icon-search"><i class="fas fa-search"></i></button>
     </div>
 </template>
 
@@ -22,7 +21,6 @@ export default {
     data() {
         return {
             curso: "Ciência da Computação",
-            search: false,
             searchTerm: ""
         }
     },

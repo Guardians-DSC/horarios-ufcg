@@ -34,6 +34,7 @@ export default {
     methods: {
         searchActive() {
             this.$store.commit("setAulaAtivadoSearch", this.searchTerm)
+            this.searchTerm = ""
         }
     }
 

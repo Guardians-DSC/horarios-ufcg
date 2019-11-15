@@ -2,18 +2,41 @@
     <div class="navbar">
         <div id="curso">{{curso}}</div>
         <h1>Horários UFCG</h1>
-        <span id="icon-search"><i class="fas fa-search"></i></span>
+        <form id="searchBar" v-if="search === true" v-on:submit.prevent="searchActive">
+            <input v-model="searchTerm" type="text" list="aulasList" >
+            <datalist id="aulasList">
+                <option v-for="(aula, index) in getAulas" v-bind:key="index" :value="`${aula.disciplina}-${aula.turma}`"></option>
+            </datalist>
+        </form>
+        <button v-if="search !== true" @click="search = !search" id="icon-search"><i class="fas fa-search"></i></button>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
     name: "navbar",
     data() {
         return {
-            curso: "Ciência da Computação"
+            curso: "Ciência da Computação",
+            search: false,
+            searchTerm: ""
+        }
+    },
+
+
+    computed: {
+        ...mapGetters([
+            'getAulas'  
+        ])
+    },
+
+    methods: {
+        searchActive() {
+            this.$store.commit("setAulaAtivadoSearch", this.searchTerm)
         }
     }
+
 }
 </script>
 
@@ -32,6 +55,19 @@ export default {
         color: #E8E8E8; 
         font-family: 'Montserrat', sans-serif;
         z-index: 1;
+    }
+
+    #searchBar {
+        display: flex;
+        flex-direction: row;
+        justify-items: center;
+        align-items: center;
+        justify-self: flex-end;
+        margin-right: 20px;
+    }
+    
+    .fa-search {
+        color: #E8E8E8;
     }
     
     div.navbar > h1 {
@@ -57,7 +93,11 @@ export default {
         font-size: 24px;
         padding: 0 16px;
         justify-self: flex-end;
-    }
+        background-color:#521782; 
+        border: #521782;
+        cursor: pointer;
+        
+   }
 
     @media screen and (max-width: 900px) {
         #curso {

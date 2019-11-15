@@ -33,11 +33,21 @@ export default new Vuex.Store({
                     item.visivel = objOption.ativado
                 }
             })
+        },
+
+        setAulaAtivadoSearch(state, aula) {
+            state.all.forEach(item => {
+                if(`${item.disciplina}-${item.turma}` == aula){
+                    item.ativado = !item.ativado
+                } 
+            })
         }
     },
     getters: {
         getAulasDiaHora: (state) => (dia,hora) => {
             return state.all.filter(aula => aula.horario.dia == dia && aula.horario.hora == hora)
-        }
+        },
+
+        getAulas: state => state.all
     }
 })

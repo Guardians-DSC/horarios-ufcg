@@ -4,8 +4,8 @@
         <h1>Horários UFCG</h1>
         <form id="searchBar" v-if="search === true" v-on:submit.prevent="searchActive">
             <div id="searchBarInputContainer">
-                <input id="inputSearch" v-model="searchTerm" placeholder="Pesquisar por Disciplina" type="text" list="aulasList" >
                 <i id="searchIcon" class="fas fa-search"></i>
+                <input id="inputSearch" v-model="searchTerm" placeholder="Disciplina" type="text" list="aulasList" >
             </div>
             <datalist id="aulasList">
                 <option v-for="(aula, index) in getAulas" v-bind:key="index" :value="`${aula.disciplina}-${aula.turma}`"></option>
@@ -63,7 +63,7 @@ export default {
 
     #searchIcon {
         color: #a080c1;
-        margin-right: 20px;
+        margin-left: 20px;
     }
 
     #searchBarInputContainer {
@@ -82,7 +82,6 @@ export default {
     }
 
     #inputSearch {
-        width: 250px;
         height: 25px;
         text-align: left;
         border-radius: 20px;

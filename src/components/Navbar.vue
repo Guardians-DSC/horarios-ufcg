@@ -3,7 +3,7 @@
         <div id="curso">{{curso}}</div>
         <h1>Horários UFCG</h1>
         <form id="searchBar" v-if="search === true" v-on:submit.prevent="searchActive">
-            <input v-model="searchTerm" type="text" list="aulasList" >
+            <input v-model="searchTerm" placeholder="Disciplina" type="text" list="aulasList" >
             <datalist id="aulasList">
                 <option v-for="(aula, index) in getAulas" v-bind:key="index" :value="`${aula.disciplina}-${aula.turma}`"></option>
             </datalist>

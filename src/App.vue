@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navbar/>
+    <Navbar :aulas='this.$store.getters.getAulas'/>
     <Filtro/>
     <dir class="container-table">
       <Tabela/>

@@ -8,16 +8,18 @@
                 <input id="inputSearch" v-model="searchTerm" placeholder="Pesquisar por Disciplina" type="text" list="aulasList" >
             </div>
             <datalist id="aulasList">
-                <option v-for="(aula, index) in getAulas" v-bind:key="index" :value="`${aula.disciplina}-${aula.turma}`"></option>
+                <option v-for="(aula, index) in this.aulas" v-bind:key="index" :value="`${aula.disciplina}-${aula.turma}`"></option>
             </datalist>
         </form>
     </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import localstorage from "@/services/localstorage";
+
 export default {
     name: "navbar",
+    props: ["aulas"],
     data() {
         return {
             curso: "Ciência da Computação",
@@ -25,16 +27,10 @@ export default {
         }
     },
 
-
-    computed: {
-        ...mapGetters([
-            'getAulas'  
-        ])
-    },
-
     methods: {
         searchActive() {
             this.$store.commit("setAulaAtivadoSearch", this.searchTerm)
+            localstorage.updateStorage(this.aulas.find( aula => `${aula.disciplina}-${aula.turma}` === this.searchTerm))
             this.searchTerm = ""
         }
     }

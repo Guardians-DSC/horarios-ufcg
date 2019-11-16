@@ -32,7 +32,7 @@ export default new Vuex.Store({
                     let visivel = false
                     options.forEach(objOption => {
                         if((objOption.info == "periodo" && item.periodo_ppc_novo == objOption.valor) ||
-                           (objOption.info == "categoria" && item.categoria == objOption.valor)){
+                        (objOption.info == "categoria" && item.categoria == objOption.valor)){
                             visivel = true
                         }
                     })
@@ -41,11 +41,21 @@ export default new Vuex.Store({
             }else {
                 state.all.forEach(item => item.visivel = true)
             }
+        },
+        setAulaAtivadoSearch(state, aula) {
+            state.all.forEach(item => {
+                if(`${item.disciplina}-${item.turma}` == aula){
+                    item.ativado = !item.ativado
+                } 
+            })
         }
-    },
+     },
+
     getters: {
         getAulasDiaHora: (state) => (dia,hora) => {
             return state.all.filter(aula => aula.horario.dia == dia && aula.horario.hora == hora)
-        }
+        },
+
+        getAulas: state => state.all.filter( (aula, i, array) => array.map(x => x.identifier).indexOf(aula.identifier) == i)
     }
 })

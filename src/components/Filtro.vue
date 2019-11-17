@@ -1,19 +1,26 @@
 <template>
-    <div class="filtro">
-        <svg class="filter-icon" 
-             v-bind:class="[ activeOpt.length ? 'filter-icon-ativado' : 'filter-icon-desativado']"
-             @click="clickFilter()">
-          <use xlink:href="./../assets/filter-svg.svg#Layer_1" />
-        </svg>
-        <div class="option" v-for="(option, id) in options" v-bind:key="id"
-             v-bind:class="[ { 'opt-ativado': option.ativado } ]"
-             @click="option.ativado = !option.ativado; clickOption(option)">
-          {{option.label}}
+   <div class="filter">
+      <div class="filtro">
+          <svg class="filter-icon" 
+              v-bind:class="[ activeOpt.length ? 'filter-icon-ativado' : 'filter-icon-desativado']"
+              @click="clickFilter()">
+            <use xlink:href="./../assets/filter-svg.svg#Layer_1" />
+          </svg>
+          <div class="option" v-for="(option, id) in options" v-bind:key="id"
+              v-bind:class="[ { 'opt-ativado': option.ativado } ]"
+              @click="option.ativado = !option.ativado; clickOption(option)">
+            {{option.label}}
+          </div>
+          <div id="clear" @click="clearFilter">clear</div>
         </div>
+                    
     </div>
 </template>
 
 <script>
+
+import localstorage from "@/services/localstorage";
+
 export default {
   name: "filtro",
   data() {
@@ -45,6 +52,13 @@ export default {
       this.activeOpt = [];
       this.options.forEach(item => item.ativado = false);
       this.$store.commit('setAulaVisivel', this.activeOpt);
+    },
+
+    clearFilter() {
+      this.$store.commit('clearActive')
+      const aulas = this.$store.getters.getAll
+
+      aulas.forEach(item => localstorage.updateStorage(item))
     }
   }
 }
@@ -52,7 +66,9 @@ export default {
 
 <style>
 .filtro {
-  margin-top: 70px;
+  margin-top: 70px;  
+  width: 100%
+
 }
 
 .filter-icon-ativado{
@@ -64,7 +80,7 @@ export default {
   fill:#656565;
 }
 
-.option {
+.option, #clear {
   display: inline-block;
   font-weight: bold;
   border: 2px solid #6d6d6d;
@@ -75,10 +91,24 @@ export default {
   margin-left: 7px;
   cursor: pointer;
 }
-.option:hover , .filter-icon-ativado:hover{
+.filter {
+  display: flex;
+  align-items: center;
+  width: 100%
+}
+
+#clear { 
+  background-color: #521782;
+  border-color: #421268;
+  color: #f3f3f3;
+  justify-content: flex-end;
+}
+
+
+.option:hover , .filter-icon-ativado:hover, #clear:hover{
   transform: scale(1.04);
 }
-.option:active , .filter-icon-ativado:active{
+.option:active , .filter-icon-ativado:active, #clear:active{
   transform: scale(1);
 }
 .opt-ativado {

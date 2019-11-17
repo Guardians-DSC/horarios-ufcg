@@ -48,6 +48,12 @@ export default new Vuex.Store({
                     item.ativado = !item.ativado
                 } 
             })
+        },
+
+        clearActive(state) {
+            state.all.forEach(item => {
+                if (item.ativado) item.ativado = !item.ativado
+            })
         }
      },
 
@@ -56,6 +62,8 @@ export default new Vuex.Store({
             return state.all.filter(aula => aula.horario.dia == dia && aula.horario.hora == hora)
         },
 
-        getAulas: state => state.all.filter( (aula, i, array) => array.map(x => x.identifier).indexOf(aula.identifier) == i)
+        getAulas: state => state.all.filter( (aula, i, array) => array.map(x => x.identifier).indexOf(aula.identifier) == i),
+
+        getAll:state => state.all,
     }
 })

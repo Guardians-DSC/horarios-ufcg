@@ -2,36 +2,45 @@
     <div class="navbar">
         <div id="curso">{{curso}}</div>
         <h1>Horários UFCG</h1>
-        <form id="searchBar" v-on:submit.prevent="searchActive">
-            <div id="searchBarInputContainer">
-                <i id="searchIcon" class="fas fa-search"></i>
-                <input id="inputSearch" v-model="searchTerm" placeholder="Pesquisar por Disciplina" type="text" list="aulasList" >
-            </div>
-            <datalist id="aulasList">
-                <option v-for="(aula, index) in this.aulas" v-bind:key="index" :value="`${aula.disciplina}-${aula.turma}`"></option>
-            </datalist>
-        </form>
-    </div>
+        <Autocomplete id="inputSearch" @submit="searchActive" :search="search"/>
+        </div>
 </template>
 
 <script>
-import localstorage from "@/services/localstorage";
+import localstorage from "@/services/localstorage"
+import Autocomplete from '@trevoreyre/autocomplete-vue'
+import '@trevoreyre/autocomplete-vue/dist/style.css'
 
 export default {
     name: "navbar",
     props: ["aulas"],
+    components: {
+        Autocomplete
+    },
     data() {
         return {
             curso: "Ciência da Computação",
-            searchTerm: ""
         }
     },
 
     methods: {
-        searchActive() {
-            this.$store.commit("setAulaAtivadoSearch", this.searchTerm)
-            localstorage.updateStorage(this.aulas.find( aula => `${aula.disciplina}-${aula.turma}` === this.searchTerm))
-            this.searchTerm = ""
+        searchActive(input) {
+            this.$store.commit("setAulaAtivadoSearch", input)
+            localstorage.updateStorage(this.aulas.find( aula => `${aula.disciplina}-${aula.turma}` === input))
+        },
+
+        search(inputSearch) {
+            if(inputSearch.length < 1) { return [] }
+            
+            const aulasSaida = [];
+
+            this.aulas.forEach(element => {
+                aulasSaida.push(`${element.disciplina}-${element.turma}`)                
+            });
+
+            return aulasSaida.filter(aula => {
+                return aula.toLowerCase().startsWith(inputSearch.toLowerCase())
+            });
         }
     }
 
@@ -55,27 +64,13 @@ export default {
         z-index: 1;
     }
 
-    #searchIcon {
-        color: #a080c1;
-        margin-left: 20px;
-    }
-
-    #searchBarInputContainer {
-        background-color: #f9f9f9;
-        border-radius: 20px;
-        border: #521782;
-    }
-
-    #searchBar {
+    Autocomplete {
         display: flex;
-        flex-direction: row;
-        justify-items: center;
-        align-items: center;
-        justify-self: flex-end;
-        margin-right: 20px;
     }
 
     #inputSearch {
+        display: flex;
+        justify-content: center;
         height: 25px;
         text-align: left;
         border-radius: 20px;
@@ -83,12 +78,9 @@ export default {
         padding-left: 10px;
         font-size: 15px;
         font-family: 'Montserrat', sans-serif;
-        color: #521782
+        color: #521782;
     }
     
-    .fa-search {
-        color: #E8E8E8;
-    }
     
     div.navbar > h1 {
         margin: 0;

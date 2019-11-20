@@ -2,8 +2,18 @@
     <div class="navbar">
         <div id="curso">{{curso}}</div>
         <h1>Horários UFCG</h1>
-        <Autocomplete id="inputSearch" @submit="searchActive" :search="search"/>
+        <div id="search">
+            <Autocomplete id="inputSearch" 
+            @submit="searchActive" 
+            v-model="itemSearch"
+            v-bind:value='itemSearch' 
+            v-on:input='itemSearch = $event.target.value'
+            :search="search" 
+            auto-select
+            placeholder="Pesquisar disciplina"/>
         </div>
+        
+    </div>
 </template>
 
 <script>
@@ -20,6 +30,7 @@ export default {
     data() {
         return {
             curso: "Ciência da Computação",
+            itemSearch: ""
         }
     },
 
@@ -27,6 +38,7 @@ export default {
         searchActive(input) {
             this.$store.commit("setAulaAtivadoSearch", input)
             localstorage.updateStorage(this.aulas.find( aula => `${aula.disciplina}-${aula.turma}` === input))
+            this.itemSearch = ""
         },
 
         search(inputSearch) {
@@ -43,7 +55,6 @@ export default {
             });
         }
     }
-
 }
 </script>
 
@@ -64,21 +75,20 @@ export default {
         z-index: 1;
     }
 
-    Autocomplete {
-        display: flex;
+    #search{
+        color: black;
+        width: 240px;
+        margin-right: 20px;
+        font-size: 15px;
+        justify-self: end;
+        align-self: center;
     }
 
     #inputSearch {
-        display: flex;
-        justify-content: center;
         height: 25px;
-        text-align: left;
-        border-radius: 20px;
-        border: #521782;
-        padding-left: 10px;
-        font-size: 15px;
+        padding-top: 13px;
+        padding-bottom: 13px;
         font-family: 'Montserrat', sans-serif;
-        color: #521782;
     }
     
     

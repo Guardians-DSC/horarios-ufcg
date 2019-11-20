@@ -53,6 +53,10 @@ export default {
 <style>
 .filtro {
   margin-top: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
 }
 
 .filter-icon-ativado{
@@ -69,7 +73,8 @@ export default {
   font-weight: bold;
   border: 2px solid #6d6d6d;
   color: #6d6d6d;
-  font-size: 12px;
+  font-size: 13px;
+  src: url("../assets/RobotoMono-Regular.ttf");
   border-radius: 12px;
   padding: 0px 5px;
   margin-left: 7px;

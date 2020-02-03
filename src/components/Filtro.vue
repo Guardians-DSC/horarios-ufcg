@@ -1,14 +1,16 @@
 <template>
     <div class="filtro">
         <svg class="filter-icon" 
-             v-bind:class="[ activeOpt.length ? 'filter-icon-ativado' : 'filter-icon-desativado']"
-             @click="clickFilter()">
+            v-bind:class="[ activeOpt.length ? 'filter-icon-ativado' : 'filter-icon-desativado']"
+            @click="clickFilter()">
           <use xlink:href="./../assets/filter-svg.svg#Layer_1" />
         </svg>
-        <div class="option" v-for="(option, id) in options" v-bind:key="id"
-             v-bind:class="[ { 'opt-ativado': option.ativado } ]"
-             @click="option.ativado = !option.ativado; clickOption(option)">
-          {{option.label}}
+        <div id="options-group">
+          <div class="option" v-for="(option, id) in options" v-bind:key="id"
+              v-bind:class="[ { 'opt-ativado': option.ativado } ]"
+              @click="option.ativado = !option.ativado; clickOption(option)">
+            {{option.label}}
+          </div>
         </div>
     </div>
 </template>
@@ -59,15 +61,6 @@ export default {
   align-items: center;
 }
 
-.filter-icon-ativado{
-  cursor: pointer;
-  fill: #521782;
-}
-
-.filter-icon-desativado{
-  fill:#656565;
-}
-
 .option {
   display: inline-block;
   font-weight: bold;
@@ -93,8 +86,18 @@ export default {
 .filter-icon {
   height: 28px;
   width: 28px;
-  float: left;
+  min-height: 28px;
+  min-width: 28px;
   margin-left: 20px;
+}
+
+.filter-icon-ativado{
+  cursor: pointer;
+  fill: #521782;
+}
+
+.filter-icon-desativado{
+  fill:#656565;
 }
 
 </style>

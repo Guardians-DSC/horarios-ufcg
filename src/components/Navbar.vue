@@ -4,13 +4,23 @@
         <h1>Horários UFCG</h1>
         <div id="search">
             <Autocomplete id="inputSearch" 
-            @submit="searchActive" 
-            v-model="itemSearch"
-            v-bind:value='itemSearch' 
-            v-on:input='itemSearch = $event.target.value'
-            :search="search" 
-            auto-select
-            placeholder="Pesquisar disciplina"/>
+                @submit="searchActive" 
+                v-model="itemSearch"
+                v-bind:value='itemSearch' 
+                v-on:input='itemSearch = $event.target.value'
+                :search="search"
+                auto-select
+                placeholder="Pesquisar disciplina"
+            >
+                <template #result="{ result, props }">
+                    <li v-bind="props">
+                        <div class="result-title">
+                            {{ `${result.disciplina} - ${result.turma}` }}
+                        </div>
+                        <div class="result-name" v-html="result.nome" />
+                    </li>
+                </template>
+            </Autocomplete>
         </div>
         
     </div>
@@ -36,24 +46,20 @@ export default {
 
     methods: {
         searchActive(input) {
-            this.$store.commit("setAulaAtivadoSearch", input)
-            localstorage.updateStorage(this.aulas.find( aula => `${aula.disciplina}-${aula.turma}` === input))
+            this.$store.commit("setAulaAtivado", input.identifier)
+            localstorage.updateStorage(this.aulas.find( aula => aula.identifier === input.identifier))
+            
             this.itemSearch = ""
         },
 
         search(inputSearch) {
             if(inputSearch.length < 1) { return [] }
-            
-            const aulasSaida = [];
 
-            this.aulas.forEach(element => {
-                aulasSaida.push(`${element.disciplina}-${element.turma}`)                
+            return this.aulas.filter(aula => {
+                return aula.disciplina.toLowerCase().startsWith(inputSearch.toLowerCase()) 
+                        ||  aula.nome.toLowerCase().startsWith(inputSearch.toLowerCase()) 
             });
-
-            return aulasSaida.filter(aula => {
-                return aula.toLowerCase().startsWith(inputSearch.toLowerCase())
-            });
-        }
+        },
     }
 }
 </script>
@@ -119,6 +125,20 @@ export default {
         border: #521782;
         cursor: pointer;
         
+   }
+
+   .result-title {
+       margin-bottom: 8px;
+   }
+
+   .result-name {
+       font-size: 12px;
+       color: rgba(0, 0, 0, 0.54);
+   }
+
+   .autocomplete-result {
+       background-image: none;
+       padding: 12px 12px 12px 12px;
    }
 
     @media screen and (max-width: 900px) {

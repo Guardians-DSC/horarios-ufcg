@@ -52,7 +52,7 @@ export default {
 
 <style>
 .filtro {
-  margin-top: 70px;
+  display:inline-block;
 }
 
 .filter-icon-ativado{

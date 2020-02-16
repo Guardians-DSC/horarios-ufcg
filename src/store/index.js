@@ -11,9 +11,9 @@ export default new Vuex.Store({
         setAulas (state, aulas) {
             state.all = aulas
         },
-        setAulaAtivado (state, aula) {
+        setAulaAtivado (state, aulaIdentifier) {
             state.all.forEach(item => {
-                if(item.identifier == aula){
+                if(item.identifier == aulaIdentifier){
                     item.ativado = !item.ativado
                 } 
             })
@@ -41,13 +41,6 @@ export default new Vuex.Store({
             }else {
                 state.all.forEach(item => item.visivel = true)
             }
-        },
-        setAulaAtivadoSearch(state, aula) {
-            state.all.forEach(item => {
-                if(`${item.disciplina}-${item.turma}` == aula){
-                    item.ativado = !item.ativado
-                } 
-            })
         }
      },
 

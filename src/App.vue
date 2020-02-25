@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar :aulas='this.$store.getters.getAulas'/>
-    <div style="margin-top: 70px">
+    <div class="settigns">
       <Filtro/>
       <div id="alert">
         <h4>Os dados não estão atualizados com os horários para esse período!!</h4>
@@ -36,6 +36,11 @@ html, body { margin: 0; }
   padding: 0;
   font-family: sans-serif;
   background-color: white;
+}
+
+.settigns {
+  display: flex;
+  margin-top: 70px
 }
 
 .container-table {

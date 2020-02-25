@@ -52,7 +52,8 @@ export default {
 
 <style>
 .filtro {
-  display:inline-block;
+  display:flex;
+  align-items: center;
 }
 
 .filter-icon-ativado{
@@ -67,6 +68,7 @@ export default {
 .option {
   display: inline-block;
   font-weight: bold;
+  height: fit-content;
   border: 2px solid #6d6d6d;
   color: #6d6d6d;
   font-size: 12px;

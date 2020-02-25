@@ -11,6 +11,7 @@
         <horario hora='10'></horario>
         <horario hora='14'></horario>
         <horario hora='16'></horario>
+        <horario hora='18'></horario>
     </div>
 </template>
 

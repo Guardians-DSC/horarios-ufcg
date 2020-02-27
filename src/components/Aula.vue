@@ -1,5 +1,5 @@
 <template>
-  <div class="aula" v-if="aula.visivel || aula.ativado">
+  <div class="aula" v-if="checkVisibility()">
     <div
       class="box" v-bind:class="[ { 'box-hover': aula.ativaHover }, { 'ativado': aula.ativado } ]"
       @mouseenter="onMouseOver('enter')" @mouseleave="onMouseOver('leave')"
@@ -33,6 +33,13 @@ export default {
       this.$store.commit('setAulaAtivado', this.aula.identifier);
       localstorage.updateStorage(this.aula);
     },
+    checkVisibility() {
+      if(this.aula.visivel || this.aula.ativado) return true;
+      else {
+        this.onMouseOver("leave");
+        return false;
+      }
+    }
   }
 };
 </script>

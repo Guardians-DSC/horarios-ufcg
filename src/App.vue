@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Navbar :aulas='this.$store.getters.getAulas'/>
+
     <Filtro/>
+
     <dir class="container-table">
       <Tabela/>
     </dir>
@@ -37,4 +39,7 @@ html, body { margin: 0; }
   width: 100%;
   overflow-x:auto;
 }
+
+
+
 </style>

@@ -12,7 +12,7 @@ export default new Vuex.Store({
             state.all = aulas
         },
         setAulaAtivado (state, item) {
-            if(item.ativado || this.getters.getConflitoPorHorario(item.identifier)) {
+            if(item.ativado || !this.getters.getHaConflitoPorHorario(item.identifier)) {
                 state.all.forEach(aula => {
                     if(aula.identifier === item.identifier) {
                         aula.ativado = !aula.ativado;
@@ -53,15 +53,16 @@ export default new Vuex.Store({
 
         getAulas: state => state.all.filter((aula, i, array) => array.map(x => x.identifier).indexOf(aula.identifier) == i),
 
-        getConflitoPorHorario: (state, getters) => (aulaIdentifier) => {
+        getHaConflitoPorHorario: (state, getters) => (aulaIdentifier) => {
+            let result = false;
             state.all.forEach(aula => {
                 if (aula.identifier === aulaIdentifier) {
                     if (getters.getAulasDiaHora(aula.horario.dia, aula.horario.hora).filter(aula => aula.ativado).length) {
-                        return true;
+                        result = true
                     }
                 }
-            });    
-            return false;
+            });
+            return result;
         }
     }
 })

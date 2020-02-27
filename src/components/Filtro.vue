@@ -10,6 +10,7 @@
              @click="option.ativado = !option.ativado; clickOption(option)">
           {{option.label}}
         </div>
+        <button @click="clearSelection()" class="option">Limpar seleção</button>
     </div>
 </template>
 
@@ -36,6 +37,14 @@ export default {
     }
   },
   methods: {
+    clearSelection() {
+      this.$store.state.all.forEach(aula => {
+        if (aula.ativado) this.$store.commit("setAulaAtivado",{
+          identifier: aula.identifier,
+          ativado: true
+        })
+      })
+    },
     clickOption(option) {
       if(option.ativado) this.activeOpt.push(option);
       else this.activeOpt = this.activeOpt.filter(item => item.ativado);

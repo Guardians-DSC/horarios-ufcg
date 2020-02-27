@@ -11,19 +11,21 @@ export default new Vuex.Store({
         setAulas (state, aulas) {
             state.all = aulas
         },
-        setAulaAtivado (state, aulaIdentifier) {
-            state.all.forEach(item => {
-                if(item.identifier == aulaIdentifier){
-                    item.ativado = !item.ativado
-                } 
-            })
+        setAulaAtivado (state, item) {
+            if(item.ativado || this.getters.getConflitoPorHorario(item.identifier)) {
+                state.all.forEach(aula => {
+                    if(aula.identifier === item.identifier) {
+                        aula.ativado = !aula.ativado;
+                    }
+                });
+            }
         },
         setAulaHover (state, objHover) {            
             state.all.forEach(item => {
                 if(item.identifier == objHover.aula){
                     if(objHover.cond == 'enter') item.ativaHover = true
                     else item.ativaHover = false
-                } 
+                }
             })
         },
         setAulaVisivel (state, options) {
@@ -42,13 +44,23 @@ export default new Vuex.Store({
                 state.all.forEach(item => item.visivel = true)
             }
         }
-     },
+    },
 
     getters: {
         getAulasDiaHora: (state) => (dia,hora) => {
             return state.all.filter(aula => aula.horario.dia == dia && aula.horario.hora == hora)
         },
 
-        getAulas: state => state.all.filter( (aula, i, array) => array.map(x => x.identifier).indexOf(aula.identifier) == i)
+        getAulas: state => state.all.filter((aula, i, array) => array.map(x => x.identifier).indexOf(aula.identifier) == i),
+
+        getConflitoPorHorario: (state, getters) => (aulaIdentifier) => {
+            let conflitos = 0;
+            state.all.forEach(aula => {
+                if (aula.identifier === aulaIdentifier) {
+                    conflitos += getters.getAulasDiaHora(aula.horario.dia, aula.horario.hora).filter(aula => aula.ativado).length
+                }
+            });    
+            return conflitos === 0;
+        }
     }
 })

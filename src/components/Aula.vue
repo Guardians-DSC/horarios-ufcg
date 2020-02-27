@@ -29,8 +29,11 @@ export default {
     onMouseOver(condition) {
       this.$store.commit('setAulaHover', {aula: this.aula.identifier, cond: condition});
     },
-    toggleState() {
-      this.$store.commit('setAulaAtivado', this.aula.identifier);
+    toggleState(event) {
+      this.$store.commit('setAulaAtivado', {
+        identifier: this.aula.identifier,
+        ativado: this.aula.ativado
+      });
       localstorage.updateStorage(this.aula);
     },
     checkVisibility() {

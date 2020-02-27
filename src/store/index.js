@@ -54,13 +54,14 @@ export default new Vuex.Store({
         getAulas: state => state.all.filter((aula, i, array) => array.map(x => x.identifier).indexOf(aula.identifier) == i),
 
         getConflitoPorHorario: (state, getters) => (aulaIdentifier) => {
-            let conflitos = 0;
             state.all.forEach(aula => {
                 if (aula.identifier === aulaIdentifier) {
-                    conflitos += getters.getAulasDiaHora(aula.horario.dia, aula.horario.hora).filter(aula => aula.ativado).length
+                    if (getters.getAulasDiaHora(aula.horario.dia, aula.horario.hora).filter(aula => aula.ativado).length) {
+                        return true;
+                    }
                 }
             });    
-            return conflitos === 0;
+            return false;
         }
     }
 })

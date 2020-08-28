@@ -9,7 +9,7 @@
       <section class="modal-body">
           <p>Disciplina: {{aula.disciplina}}</p>
           <p>Nome: {{aula.nome}}</p>
-          <p>Professor: {{aula.professor}}</p>
+          <p>Período: {{aula.periodo}}</p>
           <p>Tipo: {{aula.categoria}}</p>
           <p>Turma: {{aula.turma}}</p>
           <p>Sala: {{aula.sala}}</p>

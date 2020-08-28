@@ -6,11 +6,11 @@
     </div>
     <transition name="fadeHeight" mode="out-in">
       <div class="dias" v-if="!collapse">
-        <dia :aulas="this.$store.getters.getAulasDiaHora('segunda',hora)"/>
-        <dia :aulas="this.$store.getters.getAulasDiaHora('terca',hora)"/>
-        <dia :aulas="this.$store.getters.getAulasDiaHora('quarta',hora)"/>
-        <dia :aulas="this.$store.getters.getAulasDiaHora('quinta',hora)"/>
-        <dia :aulas="this.$store.getters.getAulasDiaHora('sexta',hora)" style="border-right: 0px;"/>
+        <dia :aulas="this.$store.getters.getAulasDiaHora('segunda',hora)" :loading="loading"/>
+        <dia :aulas="this.$store.getters.getAulasDiaHora('terca',hora)" :loading="loading"/>
+        <dia :aulas="this.$store.getters.getAulasDiaHora('quarta',hora)" :loading="loading"/>
+        <dia :aulas="this.$store.getters.getAulasDiaHora('quinta',hora)" :loading="loading"/>
+        <dia :aulas="this.$store.getters.getAulasDiaHora('sexta',hora)" :loading="loading" style="border-right: 0px;"/>
       </div>
     </transition>
   </div>
@@ -30,6 +30,7 @@ export default {
     return {
       curso: "Computação",
       collapse: false,
+      loading: true,
     };
   },
   methods: {
@@ -45,7 +46,7 @@ export default {
   },
   mounted() {
     api.get("/horarios")
-       .then(response => this.initStore(response.data))
+       .then(response => {this.initStore(response.data); this.loading = false})
   }
 };
 </script>

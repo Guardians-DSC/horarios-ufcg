@@ -28,9 +28,8 @@ export default {
         {label: "7° P", ativado: false, info: "periodo", valor: 7},
         {label: "8° P", ativado: false, info: "periodo", valor: 8},
         {label: "9° P", ativado: false, info: "periodo", valor: 9},
-        {label: "opt-especifica", ativado: false, info: "categoria", valor: "opt-especifica"},
-        {label: "opt-geral", ativado: false, info: "categoria", valor: "opt-geral"},
-        {label: "outros-cursos", ativado: false, info: "categoria", valor: "outros-cursos"},
+        {label: "optativa", ativado: false, info: "categoria", valor: "optativa"},
+        {label: "complementar", ativado: false, info: "categoria", valor: "complementar"},
       ],
       activeOpt: []
     }

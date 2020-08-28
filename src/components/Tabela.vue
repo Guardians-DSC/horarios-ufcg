@@ -7,19 +7,41 @@
             <span id="qui">QUI</span>
             <span id="sex" style='border-right: 0px;'>SEX</span>
         </div>
-        <horario hora='08'></horario>
-        <horario hora='10'></horario>
-        <horario hora='14'></horario>
-        <horario hora='16'></horario>
+        <horario v-for="(hora, id) in horas" v-bind:key="id" :hora="hora" :loading="loading"></horario>
     </div>
 </template>
 
 <script>
 import horario from './Horario.vue';
+import api from "@/services/api";
+import localstorage from "@/services/localstorage";
 export default {
   name: "tabela",
   components: {
     horario
+  },
+  data() {
+    return {
+      loading: true,
+      horas: [],
+     };
+  },
+  methods: {
+    initStore(data) {
+      data.forEach(item => {
+        item.identifier = `${item.disciplina}.${item.turma}`;
+        localstorage.haveDisciplineInLocalStorage(item) ? item.ativado = true  : item.ativado = false;
+        item.ativaHover = false;
+        item.visivel = true;
+      })
+      this.$store.commit("setAulas", data)
+    }
+  },
+  mounted() {
+    api.get("/horarios/horas")
+       .then(response =>  this.horas = response.data)
+    api.get("/horarios")
+       .then(response => {this.initStore(response.data); this.loading = false})
   }
 }
 </script>

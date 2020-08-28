@@ -31,7 +31,7 @@ export default new Vuex.Store({
                 state.all.forEach(item => {
                     let visivel = false
                     options.forEach(objOption => {
-                        if((objOption.info == "periodo" && item.periodo_ppc_novo == objOption.valor) ||
+                        if((objOption.info == "periodo" && item.periodo == objOption.valor) ||
                         (objOption.info == "categoria" && item.categoria == objOption.valor)){
                             visivel = true
                         }

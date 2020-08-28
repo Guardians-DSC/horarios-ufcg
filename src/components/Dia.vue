@@ -1,6 +1,6 @@
 <template>
   <div class="aulas">
-    <div class="fa-3x loading" v-if="!aulas.length">
+    <div class="fa-3x loading" v-if="loading">
       <i class="fas fa-circle-notch fa-spin"></i>
     </div>
     
@@ -12,7 +12,7 @@
 import Aula from './Aula.vue';
 export default {
   name: 'dia',
-  props: ['aulas'],
+  props: ['aulas','loading'],
   components: {
     Aula
   }

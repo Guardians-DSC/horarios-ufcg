@@ -14,7 +14,6 @@
 
 <script>
 import Dia from "./Dia.vue";
-import localstorage from "@/services/localstorage";
 export default {
   name: "horario",
   props: ["hora","loading"],

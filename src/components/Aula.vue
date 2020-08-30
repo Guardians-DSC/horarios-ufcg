@@ -1,7 +1,7 @@
 <template>
   <div class="aula" v-if="checkVisibility()">
     <div
-      class="box" v-bind:class="[ { 'box-hover': aula.ativaHover }, { 'ativado': aula.ativado } ]"
+      class="box" v-bind:class="[ { 'box-hover': aula.ativaHover }, { 'ativado': aula.ativado }, { 'emConflito': aula.conflito } ]"
       @mouseenter="onMouseOver('enter')" @mouseleave="onMouseOver('leave')"
       @click="toggleState()" @click.right="showDetails = true"
       @contextmenu.capture.prevent>
@@ -85,12 +85,12 @@ export default {
   border: 2px solid #421268;
 }
 
-.emComflito {
+.emConflito {
   background-color: rgb(228, 104, 104);
   border: 2px solid rgb(221, 82, 82);
 }
 
-.emComflito:hover {
+.emConflito:hover {
   background-color: rgb(235, 149, 149);
   border: 2px solid rgb(221, 82, 82);
 }

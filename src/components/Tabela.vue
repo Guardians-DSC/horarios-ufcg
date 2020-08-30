@@ -31,6 +31,7 @@ export default {
       data.forEach(item => {
         item.identifier = `${item.disciplina}.${item.turma}`;
         localstorage.haveDisciplineInLocalStorage(item) ? item.ativado = true  : item.ativado = false;
+        if (!item.hasOwnProperty('conflito')) item.conflito = false;
         item.ativaHover = false;
         item.visivel = true;
       })

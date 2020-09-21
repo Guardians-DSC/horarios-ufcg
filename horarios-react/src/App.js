@@ -1,7 +1,13 @@
 import React from 'react';
 
+import './global.css'
+
+import Header from './components/Header'
+
 function App() {
-  return <h1>Horários UFCG</h1>
+  return (
+    <Header />
+  )
 }
 
 export default App;

@@ -2,42 +2,39 @@
     width: 100%;
     background: #521782;
     color: #e8e8e8;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
     height: 5rem;
     box-shadow: 1px 3px 6px 0 rgba(56,50,50,.42);
 }
 
-#header-container .header-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
+#header-container .course-name {
     height: 100%;
-}
-
-#header-container .header-content .course-name {
-    height: 100%;
+    background: #421268;
     display: flex;
     align-items: center;
     justify-self: start;
     padding: 0 1.3rem;
-    background: #421268;
 }
 
-#header-container .header-content .course-name h2 {
+#header-container .course-name h2 {
     font-size: 2rem;
 }
 
-#header-container .header-content h1 {
+#header-container h1 {
     justify-self: center;
     font-size: 3.2rem;
 }
 
-#header-container .header-content .search-bar {
+#header-container .search-bar {
     display: flex;
     align-items: center;
     justify-self: end;
+    position: relative;
 }
 
-#header-container .header-content .search-bar input {
+#header-container .search-bar input {
     width: 24rem;
     justify-self: end;
     margin-right: 1.5rem;
@@ -51,22 +48,22 @@
     padding-left: 4rem;
 }
 
-#header-container .header-content .search-bar input:focus {
+#header-container .search-bar input:focus {
     background-color: #fff;
 }
 
-#header-container .header-content .search-bar img {
+#header-container .search-bar img {
     position: absolute;
-    right: 22rem;
+    left: 1rem;
 }
 
 
 
 @media (max-width: 900px) {
-    #header-container .header-content h1 {
+    #header-container h1 {
         font-size: 2.5rem;
     }
-    #header-container .header-content .course-name h2 {
+    #header-container .course-name h2 {
         font-size: 1.5rem;
     }
 }
@@ -75,8 +72,7 @@
     #header-container {
         height: 6.4rem;
     }
-    #header-container .header-content h1 {
+    #header-container h1 {
         text-align: center;
     }
-
 }

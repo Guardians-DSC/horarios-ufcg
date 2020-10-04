@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
+
+#filter-button-container {
+    border-radius: 1.2rem;
+    padding: 0 0.5rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-family: 'Roboto Mono', sans-serif;
+    background: white;
+    margin-left: 0.8rem;
+}
+
+#filter-button-container:hover {
+    color: #521782;
+    border: 0.2rem solid #521782;
+}
+
+.normal-color {
+    color: #6d6d6d;
+    border: 0.2rem solid #6d6d6d;
+}
+
+.active-color {
+    color: #521782;
+    border: 0.2rem solid #521782;
+}

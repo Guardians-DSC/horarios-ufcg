@@ -1,11 +1,7 @@
 #filter-container {
     display: flex;
     align-items: center;
-}
-
-#filter-container img {
-    height: 3rem;
-    width: 3rem;
-    /* filter: invert(12%) sepia(56%) saturate(4247%) hue-rotate(266deg) brightness(94%) contrast(101%); */
-    fill: #521782;
+    margin-top: 1.6rem;
+    margin-left: 1.6rem;
+    flex-wrap: wrap;
 }

@@ -3,18 +3,18 @@ import React, { useState } from 'react'
 import './style.css'
 
 function FilterButton({ content }) {
-    const [vari, setVari] = useState('normal-color');
+    const [color, setColor] = useState('normal-color');
 
     function click() {
-        if (vari === "normal-color") {
-            setVari('active-color')
+        if (color === "normal-color") {
+            setColor('active-color')
         } else {
-            setVari('normal-color')
+            setColor('normal-color')
         }
     }
 
     return (
-       <button id='filter-button-container' className={vari} onClick={click}>
+       <button id='filter-button-container' className={color} onClick={click}>
            <p>{content}</p>
        </button> 
     )

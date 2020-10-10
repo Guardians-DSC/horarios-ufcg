@@ -13,6 +13,7 @@
 #filter-button-container:hover {
     color: #521782;
     border: 0.2rem solid #521782;
+    transform: scale(1.04);
 }
 
 .normal-color {

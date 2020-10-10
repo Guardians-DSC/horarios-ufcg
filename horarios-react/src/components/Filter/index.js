@@ -3,22 +3,12 @@ import React, { useState } from 'react'
 import './style.css'
 
 import FilterButton from '../FilterButton'
-import filterImg from '../../assets/filter.svg'
+import FilterImg from '../FilterImg'
 
 function Filter() {
-    const [vari, setVari] = useState(false);
-
-    function click() {
-        if (vari === "color") {
-            setVari('change-color')
-        } else {
-            setVari('color')
-        }
-    }
-
     return (
        <div id='filter-container'>
-            <img src={filterImg} alt=""/>
+            <FilterImg color="#6d6d6d" />
             <FilterButton content='1ºP'/>
             <FilterButton content='2ºP'/>
             <FilterButton content='3ºP'/>

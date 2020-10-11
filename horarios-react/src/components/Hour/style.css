@@ -1,0 +1,31 @@
+#hour-container {
+    color: #521782;
+    font-size: 1.6rem;
+    width: 100%;
+    height: 6.5rem;
+    display: flex;
+}
+
+#hour-container .hour {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: sans-serif;
+    padding: 0.4rem;
+    width: 6rem;
+    height: 6rem;
+    cursor: pointer;
+}
+
+#hour-container .hour img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.gray {
+    background-color: #eee;
+}
+
+.white {
+    background-color: #fff;
+}

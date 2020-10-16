@@ -1,14 +1,14 @@
 import React from 'react'
 
 import './style.css'
-import arrowDownIcon from '../../assets/arrow-down.svg'
+import Arrow from '../Arrow'
 
 function Hour({ content, color }) {
     return (
        <div id='hour-container' className={color}>
           <div className="hour">
             <p>{content}</p>
-            <img src={arrowDownIcon} alt=""/>
+            <Arrow />
           </div>
           <div className="content">
           </div>

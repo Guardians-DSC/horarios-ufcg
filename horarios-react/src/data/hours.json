@@ -1,0 +1,30 @@
+[
+    {
+        "hour": "8h",
+        "color": "gray"
+    },
+    {
+        "hour": "10h",
+        "color": "white"
+    },
+    {
+        "hour": "14h",
+        "color": "gray"
+    },
+    {
+        "hour": "16h",
+        "color": "white"
+    },
+    {
+        "hour": "18h",
+        "color": "gray"
+    },
+    {
+        "hour": "20h",
+        "color": "white"
+    },
+    {
+        "hour": "22h",
+        "color": "gray"
+    }
+]

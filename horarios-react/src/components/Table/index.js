@@ -1,28 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './style.css'
+import days from '../../data/days.json'
+import hours from '../../data/hours.json'
 
 import Day from '../Day'
 import Hour from '../Hour'
 
 function Table() {
+    const [daysArray, setDaysArray] = useState(days);
+    const [hoursArray, setHoursArray] = useState(hours);
+
     return (
-        <div id='table-container'>
-            <div className='days'>
-                <Day content="SEG"/>
-                <Day content="TER"/>
-                <Day content="QUA"/>
-                <Day content="QUI"/>
-                <Day content="SEX"/>
+        <div id="table-container">
+            <div className="days">
+                <span></span>
+                {daysArray.map(elem => (
+                    <Day content={elem.day}/>
+                ))}
             </div>
-            <div className='hours'>
-                <Hour content="8h" color="gray"/>
-                <Hour content="10h" color="white"/>
-                <Hour content="14h" color="gray"/>
-                <Hour content="16h" color="white"/>
-                <Hour content="18h" color="gray"/>
-                <Hour content="20h" color="white"/>
-                <Hour content="22h" color="gray"/>
+            <div className="hours">
+                {hoursArray.map(elem => (
+                    <Hour content={elem.hour} color={elem.color}/>
+                ))}
             </div>
         </div>
     )

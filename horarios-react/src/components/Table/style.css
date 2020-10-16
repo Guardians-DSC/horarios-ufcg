@@ -3,6 +3,9 @@
 }
 
 .days {
-    display: flex;
-    justify-content: flex-end;
+    display: grid;
+    /* justify-content: flex-end; */
+    grid-template-columns: 65px 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+    grid-auto-flow: column;
 }

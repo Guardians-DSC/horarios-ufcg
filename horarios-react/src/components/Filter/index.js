@@ -11,17 +11,17 @@ function Filter() {
 
     useEffect(() => {
         setButtonsInfo([
-            { label: "1ºP", active: false, color: "normal-color" },
-            { label: "2ºP", active: false, color: "normal-color" },
-            { label: "3ºP", active: false, color: "normal-color" },
-            { label: "4ºP", active: false, color: "normal-color" },
-            { label: "5ºP", active: false, color: "normal-color" },
-            { label: "6ºP", active: false, color: "normal-color" },
-            { label: "7ºP", active: false, color: "normal-color" },
-            { label: "8ºP", active: false, color: "normal-color" },
-            { label: "9ºP", active: false, color: "normal-color" },
-            { label: "optativa", active: false, color: "normal-color" },
-            { label: "complementar", active: false, color: "normal-color" },
+            { label: "1ºP", active: false },
+            { label: "2ºP", active: false },
+            { label: "3ºP", active: false },
+            { label: "4ºP", active: false },
+            { label: "5ºP", active: false },
+            { label: "6ºP", active: false },
+            { label: "7ºP", active: false },
+            { label: "8ºP", active: false },
+            { label: "9ºP", active: false },
+            { label: "optativa", active: false },
+            { label: "complementar", active: false },
         ])
     }, []);
 
@@ -29,13 +29,7 @@ function Filter() {
         let newArray = buttonsInfo;
         for (let obj in newArray) {
             if ((newArray[obj].label === buttonContent)) {
-                if (newArray[obj].active === false) {
-                    newArray[obj].color = "active-color"
-                    newArray[obj].active = true
-                } else {
-                    newArray[obj].color = "normal-color"
-                    newArray[obj].active = false
-                }
+                newArray[obj].active = !newArray[obj].active
             } 
         }
         await setButtonsInfo(newArray);
@@ -45,7 +39,6 @@ function Filter() {
     async function clear() {
         let newArray = buttonsInfo;
         for (let obj in newArray) {
-            newArray[obj].color = "normal-color"
             newArray[obj].active = false
         }
         await setButtonsInfo(newArray);
@@ -58,7 +51,7 @@ function Filter() {
                 <FilterImg color="#6d6d6d" />
             </button>
             {buttonsInfo.map(elem => (
-                <FilterButton content={elem.label} color={elem.color} click={click}/>
+                <FilterButton content={elem.label} active={elem.active} click={click} />
             ))}
        </div>
     )

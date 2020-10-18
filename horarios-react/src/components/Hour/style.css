@@ -11,8 +11,7 @@
     align-items: center;
     justify-content: space-between;
     font-family: sans-serif;
-    padding: 0.4rem;
-    padding-left: 0.7rem;
+    padding: 0.4rem 0 0.4rem 0.7rem;
     width: 6rem;
     height: 6rem;
     cursor: pointer;

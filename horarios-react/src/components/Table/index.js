@@ -16,12 +16,12 @@ function Table() {
             <div className="days">
                 <span></span>
                 {daysArray.map(elem => (
-                    <Day content={elem.day}/>
+                    <Day key={elem.day} content={elem.day}/>
                 ))}
             </div>
             <div className="hours">
                 {hoursArray.map(elem => (
-                    <Hour content={elem.hour} color={elem.color}/>
+                    <Hour key={elem.hour} content={elem.hour} />
                 ))}
             </div>
         </div>

@@ -3,9 +3,9 @@ import React from 'react'
 import './style.css'
 import Arrow from '../Arrow'
 
-function Hour({ content, color }) {
+function Hour({ content }) {
     return (
-       <div id='hour-container' className={color}>
+       <div id="hour-container">
           <div className="hour">
             <p>{content}</p>
             <Arrow />

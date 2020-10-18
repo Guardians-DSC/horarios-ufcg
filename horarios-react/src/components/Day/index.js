@@ -4,7 +4,7 @@ import './style.css'
 
 function Day({ content }) {
     return (
-       <div id='day-container'>
+       <div id="day-container">
            <p>{content}</p>
        </div>
     )

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import './style.css'
 
@@ -6,43 +6,32 @@ import FilterButton from '../FilterButton'
 import FilterImg from '../FilterImg'
 
 function Filter() {
-    const [buttonsInfo, setButtonsInfo] = useState([]);
-    const [render, setRender] = useState(false);
-
-    useEffect(() => {
-        setButtonsInfo([
-            { label: "1ºP", active: false },
-            { label: "2ºP", active: false },
-            { label: "3ºP", active: false },
-            { label: "4ºP", active: false },
-            { label: "5ºP", active: false },
-            { label: "6ºP", active: false },
-            { label: "7ºP", active: false },
-            { label: "8ºP", active: false },
-            { label: "9ºP", active: false },
-            { label: "optativa", active: false },
-            { label: "complementar", active: false },
-        ])
-    }, []);
+    const [buttonsInfo, setButtonsInfo] = useState([
+        { label: "1ºP", active: false },
+        { label: "2ºP", active: false },
+        { label: "3ºP", active: false },
+        { label: "4ºP", active: false },
+        { label: "5ºP", active: false },
+        { label: "6ºP", active: false },
+        { label: "7ºP", active: false },
+        { label: "8ºP", active: false },
+        { label: "9ºP", active: false },
+        { label: "optativa", active: false },
+        { label: "complementar", active: false },
+    ]);
 
     async function click(buttonContent) {
-        let newArray = buttonsInfo;
-        for (let obj in newArray) {
-            if ((newArray[obj].label === buttonContent)) {
-                newArray[obj].active = !newArray[obj].active
-            } 
-        }
-        await setButtonsInfo(newArray);
-        setRender(!render);
+        setButtonsInfo(buttonsInfo.map(item => {
+            if(item.label === buttonContent)  item.active = !item.active;
+            return item;
+        }));
     }
 
     async function clear() {
-        let newArray = buttonsInfo;
-        for (let obj in newArray) {
-            newArray[obj].active = false
-        }
-        await setButtonsInfo(newArray);
-        setRender(!render);
+        setButtonsInfo(buttonsInfo.map(item => {
+            item.active = false;
+            return item;
+        }));
     }
 
     return (

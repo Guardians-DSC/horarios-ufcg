@@ -20,14 +20,14 @@ function Filter() {
         { label: "complementar", active: false },
     ]);
 
-    async function click(buttonContent) {
+    function click(buttonContent) {
         setButtonsInfo(buttonsInfo.map(item => {
             if(item.label === buttonContent)  item.active = !item.active;
             return item;
         }));
     }
 
-    async function clear() {
+    function clear() {
         setButtonsInfo(buttonsInfo.map(item => {
             item.active = false;
             return item;
@@ -35,7 +35,7 @@ function Filter() {
     }
 
     return (
-       <div id='filter-container'>
+       <div id="filter-container">
             <button className="clear-button" onClick={clear}>
                 <FilterImg color="#6d6d6d" />
             </button>

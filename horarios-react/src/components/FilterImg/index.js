@@ -21,4 +21,4 @@ function FilterImg({ color }) {
     )
 }
 
-export default FilterImg
+export default FilterImg 

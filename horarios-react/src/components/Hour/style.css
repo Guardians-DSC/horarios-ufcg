@@ -2,8 +2,10 @@
     color: #521782;
     font-size: 1.6rem;
     width: 100%;
-    height: 6.5rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    grid-gap: 5px;
+    align-items: center;
 }
 
 #hour-container .hour {
@@ -15,4 +17,39 @@
     width: 6rem;
     height: 6rem;
     cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+#hour-container .hour span {
+    width: 15px;
+    height: 15px;
+}
+
+#hour-container .content {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-auto-flow: column;
+    transition: all 0.25s ease;
+    visibility: visible;
+    opacity: 1;
+    max-height: 500px;
+}
+
+#hour-container .content .subjects {
+    width: auto;
+    border-right: solid 0.2rem #d9d9d9;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    align-content: flex-start;
+}
+
+#hour-container .hide {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+}
+
+.up {
+    transform: rotate(180deg);
 }

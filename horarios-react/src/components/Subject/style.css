@@ -6,10 +6,9 @@
     font-size: 1.1rem;
     padding: 0.2rem 0.6rem;
     border-radius: 0.4rem;
-    /* background-color: #e1dfdf;
-    border: 0.2rem solid #cecece; */
     text-align: center;
-    margin: 1rem;
+    margin: 0.2rem;
+    flex-grow: 1;
 }
 
 .normal {

@@ -12,7 +12,6 @@ function Table({ showModal }) {
     const [daysArray, setDaysArray] = useState(days);
     const [hoursArray, setHoursArray] = useState();
     const [subjectsArray, setSubjectsArray] = useState();
-    const [render, setRender] = useState(false)
 
     useEffect(() => {
         //faz as requisicoes pra api
@@ -46,21 +45,17 @@ function Table({ showModal }) {
             //procura a disciplina x da turma y
             if (subjectsArray[obj].disciplina === arrays[0] && subjectsArray[obj].turma === arrays[1]) {
                 //chama a funçao passada nas props para retornar os dados da disciplina pro modal
-                showModal(arrays[0], arrays[1], subjectsArray[obj].nome, subjectsArray[obj].categoria, subjectsArray[obj].periodo, subjectsArray[obj].sala)
+                showModal(subjectsArray[obj])
             }
         }
     }
 
     //funcao que eh executada quando o botao de disciplina eh clicado com o botao esquerdo do mouse
     async function leftClick(subject, group) {
-        let newArray = subjectsArray;
-        for (let obj in newArray) {
-            if (newArray[obj].disciplina === subject && newArray[obj].turma === group) {
-                newArray[obj].active = !newArray[obj].active
-            }
-        }
-        await setSubjectsArray(newArray)
-        setRender(!render)
+        setSubjectsArray(subjectsArray.map(item => {
+            if(item.disciplina === subject && item.turma === group)  item.active = !item.active;
+            return item;
+        }));
     }
 
     return (
@@ -79,7 +74,7 @@ function Table({ showModal }) {
             <div>
                 {subjectsArray && subjectsArray.map(elem => (
                     //passando as props pro botao de disciplina
-                    <Subject key={elem.disciplina} subject={elem.disciplina} group={elem.turma} active={elem.active} rightClick={rightClick} leftClick={leftClick}/>
+                    <Subject key={`${elem.disciplina}`+`${elem.turma}`} subjectData={elem} rightClick={rightClick} leftClick={leftClick}/>
                 ))}
             </div>
         </div>

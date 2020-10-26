@@ -21,7 +21,7 @@ const customStyles = {
     }
   };
 
-function SubjectModal({ subject, subjectName, period, type, group, classroom, modalIsOpen, closeModal }) {
+function SubjectModal({ subjectData, modalIsOpen, closeModal }) {
     return (
         <div id="subject-modal-container">
             <Modal
@@ -37,12 +37,12 @@ function SubjectModal({ subject, subjectName, period, type, group, classroom, mo
                         <img src={cross} alt=""/>
                     </button>
                 </div>
-                <p>Disciplina: {subject}</p>
-                <p>Nome: {subjectName}</p>
-                <p>Período: {period}</p>
-                <p>Tipo: {type}</p>
-                <p>Turma: {group}</p>
-                <p>Sala: {classroom}</p>
+                <p>Disciplina: {subjectData.disciplina}</p>
+                <p>Nome: {subjectData.nome}</p>
+                <p>Período: {subjectData.periodo}</p>
+                <p>Tipo: {subjectData.categoria}</p>
+                <p>Turma: {subjectData.turma}</p>
+                <p>Sala: {subjectData.sala}</p>
             </Modal>
         </div>
     )

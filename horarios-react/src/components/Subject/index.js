@@ -2,10 +2,10 @@ import React from 'react'
 
 import './style.css'
 
-function Subject({ subject, group, active, rightClick, leftClick }) {
+function Subject({ subjectData, rightClick, leftClick }) {
     return (
-        <button id='subject-container' className={active ? "active" : "normal"} onClick={() => leftClick(subject, group)} onContextMenu={rightClick}>
-           <p>{subject}-{group}</p>
+        <button id='subject-container' className={subjectData.active ? "active" : "normal"} onClick={() => leftClick(subjectData.disciplina, subjectData.turma)} onContextMenu={rightClick}>
+           <p>{subjectData.disciplina}-{subjectData.turma}</p>
        </button> 
     )
 } 

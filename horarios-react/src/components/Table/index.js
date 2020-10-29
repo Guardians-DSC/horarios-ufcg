@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import './style.css'
 import days from '../../data/days.json'
+import hours from '../../data/hours.json'
 import api from '../../services/api'
 
 import Day from '../Day'
@@ -10,7 +11,7 @@ import Hour from '../Hour'
 
 function Table({ showModal }) {
     const [daysArray, setDaysArray] = useState(days);
-    const [hoursArray, setHoursArray] = useState();
+    const [hoursArray, setHoursArray] = useState(hours);
 
     useEffect(() => {
         //faz as requisicoes pra api

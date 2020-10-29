@@ -33,6 +33,7 @@
     visibility: visible;
     opacity: 1;
     max-height: 500px;
+    height: 100%;
 }
 
 #hour-container .content .subjects {

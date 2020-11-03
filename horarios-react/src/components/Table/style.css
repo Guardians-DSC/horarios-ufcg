@@ -12,3 +12,22 @@
 #table-container .hours #hour-container:nth-child(odd) {
     background-color: #eee;
 }
+
+#table-container .hours-mobile #hour-mobile-container:nth-child(odd) {
+    background-color: #eee;
+}
+
+@media (max-width: 485px) {
+    #table-container .days {
+        display: none;
+    }
+    #table-container .hours {
+        display: none;
+    }
+}
+
+@media (min-width: 486px) {
+    #table-container .hours-mobile {
+        display: none;
+    }
+}

@@ -1,0 +1,16 @@
+#hour-mobile-container {
+    color: #521782;
+    font-size: 1.6rem;
+    width: 100%;
+    height: 6.5rem;
+    display: flex;
+}
+
+#hour-mobile-container .hour {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    width: 5rem;
+    height: 100%;
+}

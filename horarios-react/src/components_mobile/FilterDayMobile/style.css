@@ -1,0 +1,15 @@
+#filter-day-mobile-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+#filter-day-mobile-container button {
+    font-size: 1.4rem;
+}
+
+@media (min-width: 486px) {
+    #filter-day-mobile-container {
+        display: none;
+    }
+}

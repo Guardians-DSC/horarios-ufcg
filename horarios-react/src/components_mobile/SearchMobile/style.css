@@ -1,0 +1,13 @@
+#search-mobile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+#search-mobile-container input {
+    border: 1px solid #CCCCCC;
+    border-radius: 0.9rem;
+    font-size: 1.6rem 1rem;
+    padding: 1rem;
+}

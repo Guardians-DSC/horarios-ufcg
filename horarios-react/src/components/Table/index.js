@@ -6,6 +6,7 @@ import hours from '../../data/hours.json'
 
 import Day from '../Day'
 import Hour from '../Hour'
+import HourMobile from '../../components_mobile/HourMobile'
 
 function Table() {
     const [daysArray, setDaysArray] = useState(days);
@@ -22,6 +23,11 @@ function Table() {
             <div className="hours">
                 {hoursArray.map(elem => (
                     <Hour key={elem.hour} content={elem.hour} />
+                ))}
+            </div>
+            <div className="hours-mobile">
+                {hoursArray.map(elem => (
+                    <HourMobile key={elem.hour} content={elem.hour} />
                 ))}
             </div>
         </div>

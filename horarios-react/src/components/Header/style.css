@@ -76,3 +76,13 @@
         text-align: center;
     }
 }
+
+@media (max-width: 485px) {
+    #header-container .search-bar {
+        display: none;
+    }
+    #header-container .course-name {
+        padding: 0 0.5rem;
+        width: 11rem;
+    }
+}

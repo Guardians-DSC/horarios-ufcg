@@ -12,8 +12,3 @@
     cursor: pointer;
 }
 
-@media (max-width: 485px) {
-    #filter-container {
-        display: none;
-    }
-}

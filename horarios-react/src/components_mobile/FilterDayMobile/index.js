@@ -4,13 +4,13 @@ import './style.css'
 
 import FilterButtonMobile from '../FilterButtonMobile'
 
-function FilterDayMobile() {
-    const [days, setDays] = useState(['SEG', 'TER', 'QUA', 'QUI', 'SEX'])
+function FilterDayMobile({ daysArray, click }) {
+    const [days, setDays] = useState(daysArray)
 
     return (
        <div id="filter-day-mobile-container">
            {days.map(elem => (
-               <FilterButtonMobile content={elem} />
+               <FilterButtonMobile content={elem.label} active={elem.active} click={click} />
            ))}
        </div>
     )

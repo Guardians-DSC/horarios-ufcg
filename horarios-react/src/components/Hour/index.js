@@ -6,8 +6,9 @@ import Subject from '../Subject'
 import api from '../../services/api'
 
 function Hour({ content, showModal }) {
-   const [subjects, setSubjects] = useState()
+   const [subjects, setSubjects] = useState([])
    const [showSubjects, setShowSubjects] = useState(true)
+   const [days, setDays] = useState(["segunda", "terca", "quarta", "quinta", "sexta"])
 
    useEffect(() => {
       const fetchData = async () => {
@@ -23,23 +24,8 @@ function Hour({ content, showModal }) {
    
    }, [])
 
-   //funcao que eh executada quando o botao de disciplina eh clicado com o botao direito do mouse
-   function rightClick(event) {
-      event.preventDefault()
-      //pega o texto interno do botao
-      const value = event.target.innerText
-      let arrays = []
-      //pega a sigla da disciplina do texto interno
-      arrays[0] = value.substring(0, (value.length - 3))
-      //pega a turma da disciplina do texto interno
-      arrays[1] = value.substring((value.length - 2), value.length)
-      for (let obj in subjects) {
-          //procura a disciplina x da turma y
-          if (subjects[obj].disciplina === arrays[0] && subjects[obj].turma === arrays[1]) {
-              //chama a funçao passada nas props para retornar os dados da disciplina pro modal
-              showModal(subjects[obj])
-          }
-      }
+   function rightClick(subjectData) {
+      showModal(subjectData)
    }
 
    //funcao que eh executada quando o botao de disciplina eh clicado com o botao esquerdo do mouse
@@ -63,31 +49,13 @@ function Hour({ content, showModal }) {
             </span>
          </div>
          <div className={showSubjects ? "content" : "content hide"}>
-            <div className="subjects">
-               {subjects && subjects.map(elem => (
-                  elem.horario.dia === "segunda" && <Subject key={`${elem.disciplina}`+`${elem.turma}`} subjectData={elem} rightClick={rightClick} leftClick={leftClick}/>
-                ))}
-            </div>
-            <div className="subjects">
-               {subjects && subjects.map(elem => (
-                  elem.horario.dia === "terca" && <Subject key={`${elem.disciplina}`+`${elem.turma}`} subjectData={elem} rightClick={rightClick} leftClick={leftClick}/>
-               ))}
-            </div>
-            <div className="subjects">
-               {subjects && subjects.map(elem => (
-                  elem.horario.dia === "quarta" && <Subject key={`${elem.disciplina}`+`${elem.turma}`} subjectData={elem} rightClick={rightClick} leftClick={leftClick}/>
-               ))}
-            </div>
-            <div className="subjects">
-               {subjects && subjects.map(elem => (
-                  elem.horario.dia === "quinta" && <Subject key={`${elem.disciplina}`+`${elem.turma}`} subjectData={elem} rightClick={rightClick} leftClick={leftClick}/>
-               ))}
-            </div>
-            <div className="subjects">
-               {subjects && subjects.map(elem => (
-                  elem.horario.dia === "sexta" && <Subject key={`${elem.disciplina}`+`${elem.turma}`} subjectData={elem} rightClick={rightClick} leftClick={leftClick}/>
-               ))}
-            </div>
+            {days.map(day => (
+               <div className="subjects">
+                  {subjects && subjects.map(subject => (
+                     subject.horario.dia === day && <Subject key={`${subject.disciplina}`+`${subject.turma}`} subjectData={subject} rightClick={rightClick} leftClick={leftClick}/>
+                  ))}
+               </div>
+            ))}
          </div>
       </div>
    )

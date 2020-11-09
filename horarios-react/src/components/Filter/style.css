@@ -5,3 +5,9 @@
     margin-left: 1.6rem;
     flex-wrap: wrap;
 }
+
+#filter-container .clear-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}

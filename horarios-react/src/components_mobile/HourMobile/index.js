@@ -1,32 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import './style.css'
 
-import api from '../../services/api'
-
 import Subject from '../../components/Subject'
 
-function HourMobile({ content, day }) {
-   const [subjects, setSubjects] = useState();
-
-   useEffect(() => {
-      const fetchData = async () => {
-         let subs = await api.get(`horarios?dia=${day}&hora=${content}`)
-      
-         await setSubjects(subs.data)
-      }
-
-      fetchData()
-   }, [])
-
+function HourMobile({ content, day, subjects }) {
     return (
       <div id="hour-mobile-container">
          <div className="hour-mobile">
-            <p>{content}</p>
+            <p>{content + "h"}</p>
          </div>
          <div className="content-mobile">
             {subjects && subjects.map(elem => (
-               <Subject key={`${elem.disciplina}`+`${elem.turma}`} subjectData={elem}/>
+               elem.horario.dia === day && parseInt(elem.horario.hora) === content && <Subject key={`${elem.disciplina}`+`${elem.turma}`} subjectData={elem}/>
             ))}
          </div>
       </div>

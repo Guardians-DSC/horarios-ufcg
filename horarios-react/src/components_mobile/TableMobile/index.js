@@ -6,23 +6,32 @@ import hours from '../../data/hours.json'
 
 import HourMobile from '../HourMobile'
 
-import Subject from '../../components/Subject'
+import api from '../../services/api'
 
 function TableMobile({ shifts, day }) {
-    const [hoursArray, setHoursArray] = useState(hours);
-    const [daySelected, setDaySelected] = useState(day)
+    const [subjects, setSubjects] = useState();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            let subs = await api.get(`horarios`)
+            
+            await setSubjects(subs.data)
+        }
+
+        fetchData()
+    }, [day])
     
     return (
         <div id="table-mobile-container">
             <div className="hours-mobile">
-                {shifts[0].active && hoursArray.map(elem => (
-                    elem.hour < 12 && <HourMobile key={elem.hour} content={elem.hour} day={daySelected}/>
+                {shifts[0].active && hours.map(elem => (
+                    elem.hour < 12 && <HourMobile key={elem.hour} content={elem.hour} day={day} subjects={subjects}/>
                 ))}
-                {shifts[1].active && hoursArray.map(elem => (
-                    elem.hour > 12 && elem.hour < 18 && <HourMobile key={elem.hour} content={elem.hour} day={daySelected}/>
+                {shifts[1].active && hours.map(elem => (
+                    elem.hour > 12 && elem.hour < 18 && <HourMobile key={elem.hour} content={elem.hour} day={day} subjects={subjects}/>
                 ))}
-                {shifts[2].active && hoursArray.map(elem => (
-                    elem.hour >= 18 && <HourMobile key={elem.hour} content={elem.hour} day={daySelected}/>
+                {shifts[2].active && hours.map(elem => (
+                    elem.hour >= 18 && <HourMobile key={elem.hour} content={elem.hour} day={day} subjects={subjects}/>
                 ))}
             </div>
         </div>

@@ -37,7 +37,6 @@ function MobileLayout() {
         setDayButtonsInfo(dayButtonsInfo.map(item => {
             if(item.label === buttonContent) {
                 item.active = true
-                // setDaySelected(item.day)
             } else {
                 item.active = false
             }
@@ -47,9 +46,6 @@ function MobileLayout() {
         for (let i = 0; i < dayButtonsInfo.length; i++) {
             if (dayButtonsInfo[i].active) {
                 await setDaySelected(dayButtonsInfo[i].day)
-                // console.log(daySelected)
-                console.log(dayButtonsInfo)
-                // return
             }
         }
     }

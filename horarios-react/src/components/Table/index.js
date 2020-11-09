@@ -1,15 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import './style.css'
 import days from '../../data/days.json'
 import hours from '../../data/hours.json'
+import api from '../../services/api'
 
 import Day from '../Day'
 import Hour from '../Hour'
 
-function Table() {
+
+function Table({ showModal }) {
     const [daysArray, setDaysArray] = useState(days);
     const [hoursArray, setHoursArray] = useState(hours);
+
+    useEffect(() => {
+        //faz as requisicoes pra api
+        const fetchData = async () => {
+            let hours = await api.get('horarios/horas')
+
+            await setHoursArray(hours.data)
+       }
+
+       fetchData()
+    }, [])
 
     return (
         <div id="table-container">
@@ -20,8 +33,8 @@ function Table() {
                 ))}
             </div>
             <div className="hours">
-                {hoursArray.map(elem => (
-                    <Hour key={elem.hour} content={elem.hour} />
+                {hoursArray && hoursArray.map(elem => (
+                    <Hour key={elem} content={elem} showModal={showModal}/>
                 ))}
             </div>
         </div>

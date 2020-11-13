@@ -77,7 +77,7 @@
     }
 }
 
-@media (max-width: 485px) {
+@media (max-width: 720px) {
     #header-container .search-bar {
         display: none;
     }

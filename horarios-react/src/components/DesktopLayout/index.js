@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import './style.css'
 
 import Filter from '../Filter'
 import Table from '../Table'
 
-function DesktopLayout() {
+function DesktopLayout({ showModal }) {
     return (
         <div id="desktop-layout">
             <Filter />
-            <Table />
+            <Table showModal={showModal}/>
         </div>
     )
 }

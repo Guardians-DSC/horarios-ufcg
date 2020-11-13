@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300&display=swap');
+
+#modal {
+    font-family: 'Roboto Mono', sans-serif;
+    color: #47525e;
+    font-size: 1.8rem;
+    font-weight: lighter;
+}
+
+#modal .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+#modal .header button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#modal .header button img {
+    height: 1.2rem;
+    width: 1.2rem;
+}

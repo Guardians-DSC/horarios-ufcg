@@ -1,0 +1,5 @@
+@media (max-width: 960px) {
+    #desktop-layout {
+        display: none;
+    }
+}

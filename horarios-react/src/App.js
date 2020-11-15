@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import './global.css'
 
 import Header from './components/Header'
-import Filter from './components/Filter'
-import Table from './components/Table'
+import MobileLayout from './components_mobile/MobileLayout'
+import DesktopLayout from './components/DesktopLayout'
 import SubjectModal from './components/SubjectModal'
 
 function App() {
@@ -26,8 +26,8 @@ function App() {
   return (
     <>
       <Header />
-      <Filter />
-      <Table showModal={openModal}/>
+      <DesktopLayout showModal={openModal} />
+      <MobileLayout />
       <SubjectModal 
         subjectData={subjectData}
         modalIsOpen={modalIsOpen}

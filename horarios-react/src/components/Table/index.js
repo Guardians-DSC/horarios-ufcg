@@ -37,6 +37,11 @@ function Table({ showModal }) {
                     <Hour key={elem} content={elem} showModal={showModal}/>
                 ))}
             </div>
+            {/* <div className="hours-mobile">
+                {hoursArray.map(elem => (
+                    <HourMobile key={elem.hour} content={elem.hour} />
+                ))}
+            </div> */}
         </div>
     )
 }

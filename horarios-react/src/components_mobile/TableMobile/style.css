@@ -1,0 +1,8 @@
+#table-mobile-container {
+    margin: 3rem 0;
+}
+
+#table-mobile-container .hours-mobile #hour-mobile-container:nth-child(odd) {
+    background-color: #eee;
+}
+

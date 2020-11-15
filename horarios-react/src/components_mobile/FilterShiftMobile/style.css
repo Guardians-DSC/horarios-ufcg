@@ -1,0 +1,15 @@
+#filter-shift-mobile-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+#filter-shift-mobile-container button {
+    font-size: 1.6rem;
+}
+/* 
+@media (min-width: 486px) {
+    #filter-turn-mobile-container {
+        display: none;
+    }
+} */

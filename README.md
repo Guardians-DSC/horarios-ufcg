@@ -1,46 +1,46 @@
-# Horarios UFCG
+# Getting Started with Create React App
 
-Visualização dos horários das discplina dos cursos da UFCG, a princípio do curso de Ciência da Computação.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Objetivo
+## Available Scripts
 
-O Horarios UFCG vai ajudar o aluno da UFCG a visualizar melhor conflitos entre disciplinas e organizar o seu horário, fornecendo uma visualização amigável.
+In the project directory, you can run:
 
-## Como contribuir
+### `yarn start`
 
-Primeiramente seja bem vindo ao nosso projeto e a nossa equipe está totalmente disponível para tirar qualquer dúvidas que surgirem. Mas vamos lá, como contribuir? Você pode dar uma olhada nas issues abertas e tentar resolver alguma ou você pode abrir um nova. Quer corrigir um bug que você achou? Abra uma issue. Quer adicionar uma funcionalidade bem legal? Abra uma issue. 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Outra coisa, discussões também são contribuições e muito bem vindas no nosso projeto. Então se você não está afim de codar, mas quer entender alguma coisa do projeto? Ou dar aquela dica massa para nos ajudar? Abra uma issue, lá nós podemos conversar sobre o projeto, tirar suas dúvidas e aprender com você também. 
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-Iae, o que você está esperando? Bora Contribuir!!
+### `yarn test`
 
-## Como executar localmente
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-O Horarios UFCG é feito em [Vue](https://vuejs.org/) e para executá-lo localmente você precisa abrir um terminal e:
+### `yarn build`
 
-### Clonar o projeto:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-```
-git clone https://github.com/Guardians-DSC/horarios-ufcg.git
-cd horarios-ufcg
-```
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Instalar dependências 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-```
-npm install
-```
+### `yarn eject`
 
-### Rodar localmente
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-```
-npm run serve
-```
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Após esses passos o projeto estará rodando localmente em localhost:8080.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-- 
-#### Design Mobile
-[Wireframe](https://www.figma.com/file/IlItYRF4vByDOvhD1ZaqCn/Hor%C3%A1rios-UFCG)
-[Demo](https://www.figma.com/proto/IlItYRF4vByDOvhD1ZaqCn/Horários-UFCG?node-id=6%3A662&scaling=scale-down)
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
